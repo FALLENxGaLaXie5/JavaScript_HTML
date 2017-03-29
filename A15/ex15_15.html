@@ -1,0 +1,98 @@
+<!doctype html>
+<!-- cipher.html                              Joshua Steward --> 
+<!-- This page encodes messages using a simple substitution  -->
+<!-- cipher (with message and key entered by the user)       -->
+<!-- ======================================================= -->
+
+<html>
+ <head>
+   <title> Substitution Cipher</title>
+
+   <script type="text/javascript">
+     function Encode()
+     // Assumes: the message to be encoded is in messageBox (all caps),
+     //          the key for encoding is in keyBox (all caps)
+     // Results: the coded version of message is displayed in outputDiv
+     {
+       var message, key, alphabet, coded, i, ch, index;
+
+       message = document.getElementById('messageArea').value;
+       key = document.getElementById('keyBox').value;
+	   key = key + key.toLowerCase();
+       alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	   alphabet = alphabet + alphabet.toLowerCase();
+       coded = '';  
+       
+       i = 0;                                    
+       while (i < message.length) {     		// FOR AS MANY LETTERS AS THERE ARE
+         ch = message.charAt(i);       			//   ACCESS EACH LETTER IN MESSAGE
+         index = alphabet.indexOf(ch);     		//   FIND ITS POSITION IN ALPHABET
+         if (index == -1) {              		//   IF NOT A CAPITAL LETTER,
+           coded = coded + ch;           		//     THEN ADD IT UNCHANGED
+         }                                 		//   OTHERWISE,
+         else {                            		//     ADD THE CORRESPONDING LETTER
+           coded = coded + key.charAt(index); 	//     IN THE KEY STRING
+         }
+         i = i + 1;
+       }
+       
+       document.getElementById('outputDiv').innerHTML = coded;
+     }
+	 //The tests were verified using the Atbash, Caesar, and Mystery ciphers.
+	 //Works great!
+	 function Decode()
+	 //Assumes: key and alphabet are switched roles
+	 //Results: the message is encoded already
+	 {
+		var message, key, alphabet, decoded, ch, index, i;
+		
+		message = document.getElementById('outputDiv').innerHTML;
+		key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		key = key + key.toLowerCase();
+		alphabet = document.getElementById('keyBox').value;
+		alphabet = alphabet + alphabet.toLowerCase();
+		decoded = '';
+		
+		i = 0;
+		while (i < message.length)
+			{
+				ch = message.charAt(i);
+				index = alphabet.indexOf(ch);
+				if (index == -1) 
+					{
+						decoded = decoded + ch;
+					}
+				else 
+					{
+						decoded = decoded + key.charAt(index);
+					}
+				i = i + 1;
+			}
+		
+		document.getElementById('outputDiv2').innerHTML = decoded;
+		
+		
+		
+		
+		
+		
+	 }
+   </script>
+ </head>
+
+ <body>
+  <h2>Substitution Cipher</h2>
+  <p>
+    Key: <input type="text" id="keyBox" size=26 value="ZYXWVUTSRQPONMLKJIHGFEDCBA">
+  </p>
+  <p>
+    Enter your message below: <br>
+    <textarea id="messageArea" rows=8 cols=30></textarea> <br>
+    <input type="button" value="Encode the Message" onclick="Encode();">
+	<br><input type="button" value="Decode the Message" onclick="Decode();">
+  </p>
+  <hr>
+  <div id="outputDiv"></div><br>
+  <div id="outputDiv2"></div>
+ </body>
+</html>

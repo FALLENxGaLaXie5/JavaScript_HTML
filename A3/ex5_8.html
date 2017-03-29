@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- clickForFreeMoney.html                   Dave Reed   -->
+<!-- This page changes displays alert message on a click. -->
+<!-- ==================================================== -->
+ 
+<html>
+ <head>
+   <title> number</title>
+ </head>
+
+ <body>
+   <div style="text-align:center">
+       <p>
+        Click on the button to reveal secret message
+      </p>   
+     <input type="button" value="Click for free money!" 
+       onclick="x=3333333333;
+				y= x * (1/x);
+	   alert('The value is ' + y);">
+<!-- This value did not come out to 1, but rather 0.9999- with 17 digits, the maximum javascript can display.
+	If it had one more digit, it would round up to 1.-->	   
+
+   </div>
+ </body>
+</html>

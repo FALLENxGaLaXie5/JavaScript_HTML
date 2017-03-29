@@ -1,0 +1,85 @@
+<!doctype html>
+<!-- pirate.html                              Dave Reed -->
+<!-- Simple page that translates words from English to   -->
+<!-- pirate at the click of a button.                    -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Pirate Translator </title>
+ </head>
+
+ <body>
+	
+	<h3>Land Lubber's Pirate Translator</h3>
+   <p>Simply click on the buttons to translate words and/or phrases from 
+      English to pirate talk.
+   </p>
+		<div style="text-align:center">
+			<img src="pirate1.jpg" alt="Pirate Awesomeness"
+				onmouseover="this.src'pirate2.jpg';"
+				onmouseout= "this.src'pirate1.jpg';">		
+		</div>
+   
+	<table>
+   <tr><td>Greetings: </td><td><input type="button" value="hello" 
+            onclick="document.getElementById('outputDiv').innerHTML= 
+                       document.getElementById('outputDiv').innerHTML + 'ahoy ';">
+                 
+   <input type="button" value="stranger" 
+            onclick="document.getElementById('outputDiv').innerHTML = 
+                       document.getElementById('outputDiv').innerHTML + 'scurvy dog ';">
+   <input type="button" value="pardon me"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'avast ';">
+	<input type="button" value="excuse me"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'arrr ';"></td></tr>
+	<tr><td>People: </td><td><input type="button" value="sir"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'matey ';">
+	<input type="button" value="madam"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'proud beauty ';">
+	<input type="button" value="officer"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'foul blaggart ';"></td></tr>
+	<tr><td>Questions:</td><td><input type="button" value="where is"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'whar be ';">
+	<input type="button" value="can you help me find"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'know ye ';">
+	<input type="button" value="is that"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'be that ';"></td></tr>
+	<tr><td>Articles</td><td><input type="button" value="the"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'th\' ';">	
+	<input type="button" value="my"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'me ';">	
+	<input type="button" value="your"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'yer ';"></td></tr>	
+    <tr><td>Places: </td><td><input type="button" value="restroom"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'head ';">		
+    <input type="button" value="restaurant"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'galley ';">
+	<input type="button" value="hotel"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+						document.getElementById('outputDiv').innerHTML + 'fleabag inn ';"></td></tr>	
+	</table>					
+						
+						
+   <input type="button" value="Clear the Translation"
+			onclick="document.getElementById('outputDiv').innerHTML = '';">
+   <input type="button" value="New Line"
+			onclick="document.getElementById('outputDiv').innerHTML = 
+			document.getElementById('outputDiv').innerHTML + '<br>' + '<hr>';">
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

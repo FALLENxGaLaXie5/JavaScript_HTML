@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- randomSeq.html                       Joshua Steward 	-->
+<!-- Displays a sequence of three randomly chosen letters.  -->
+<!-- ===================================================    -->
+
+<html>
+ <head>
+   <title> Random Sequence </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   
+   <script type="text/javascript">
+     function GenerateSequence()
+     // Assumes: The function RandomChar is stored in the random.js library.
+     // Results: 
+     {
+        var sequence;
+		sequence = RandomChar('abcdefghijklmnopqrstuvwxyz') +
+				   RandomChar('abcdefghijklmnopqrstuvwxyz') +
+				   RandomChar('abcdefghijklmnopqrstuvwxyz'); 
+		document.getElementById('outputDiv').innerHTML = 
+				'Randomly chosen letters: ' + sequence;
+				
+	  
+     }
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center"> 
+    
+     </p>
+     <input type="button" value="Click to Generate Random Letters" onclick="GenerateSequence();">
+	<hr>
+	<div id="outputDiv"></div>
+   </div>
+ </body>
+</html>

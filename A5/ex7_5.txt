@@ -1,0 +1,12 @@
+doctype text
+Joshua Steward
+
+Expression		Range
+		
+2*Math.random()		0(inclusive) to 2(exclusive)
+Math.randm()+1		1(inclusive) to 2(exclusive)
+2*Math.random()+1	1(inclusive) to 3(exclusive)
+10*Math.random()+5	5(inclusive) to 15(exclusive)
+5*Math.random()+10	10(inclusive) to 15(exclusive)
+
+Note- multiplying Math.random increases the range of possibilities by that amount, while adding a number to it moves that range up by that amount.

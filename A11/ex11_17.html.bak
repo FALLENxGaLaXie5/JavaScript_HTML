@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- classify.html                         		  Joshua Steward  -->
+<!-- Determines whether a number is positive, negative, or zero.  -->
+<!-- =====================================================  	  -->
+
+<html>
+ <head>
+   <title> Classified Intel </title>
+   
+    <script type="text/javascript" src="weather.js">
+   </script> 
+   <script type="text/javascript">
+     function CalcDewPoint()
+     // Assumes:
+     // Results: 
+     {
+        var temp, wind, hum, dewP, windCH;
+		temp = parseFloat(document.getElementById('tempBox').value);
+		wind = parseFloat(document.getElementById('windBox').value);
+		hum  = parseFloat(document.getElementById('humBox').value);
+		dewP = DewPoint(temp, hum);
+		document.getElementById('outputDiv').innerHTML=
+		'The DewPoint is ' + dewP + ' .;
+		
+			
+	  
+     }
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center"> 
+	<p>
+	<h1>
+	Determine whether a number is positive, negative, or zero.
+	</h1>
+    <br>
+    <br> 
+     Temperature: <input type="text" id="tempBox"  size=10 value=""> F<br>
+	 Wind Speed:  <input type="text" id="windBox"  size=10 value=""><br>
+	 Humidity:    <input type="text" id="humBox"   size=10 value="">%<br>
+	 <input type="button" value="Dew Point" onclick="CalcDewPoint();">
+	 <input type="button" value="" onclick=";">
+	<hr>
+	<div id="outputDiv"></div>
+   </div>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- pick4.html                                Joshua Steward -->
+<!-- Web page that generates a lucky number from a range.      -->
+<!-- ========================================================= -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title> Pick-4 </title>
+  </head>
+  <body>
+    <h2> Pick-4 </h2>
+    <p> Numbers are selected between 0
+      and <input id="maxBox" size="3" value="9" type="text">. </p>
+    <input type="button" value="Generate Lucky Number" 
+			onclick="maxValue=parseFloat(document.getElementById('maxBox').value);                   
+                     number1=Math.floor(Math.random()*(maxValue +1));
+					 number2=Math.floor(Math.random()*(maxValue +1));
+					 number3=Math.floor(Math.random()*(maxValue +1));
+					 number4=Math.floor(Math.random()*(maxValue +1));
+                     document.getElementById('outputDiv').innerHTML=
+					 
+					 'Your Pick-4 winners are: ' + number1 + '-' + number2 +'-' + number3 +'-' + number4 + '.';">
+					 
+    <hr>
+    <div id="outputDiv"></div>
+  </body>
+</html>

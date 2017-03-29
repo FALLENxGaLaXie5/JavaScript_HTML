@@ -1,0 +1,105 @@
+ <!doctype html>
+ <!-- game.html                                         Joshua Steward -->
+ <!-- This page allow user to play a number guessing with the computer -->
+ <!---------------------------------------------------------------------->
+ <html>
+ <head>
+   <title>Guessing Game</title>
+
+   <script type="text/javascript">	 
+     function PlayHiLow()
+       // Assumes: the page has two boxes that contain to and from values
+       // Results: displays the guessed value
+     {
+       var from, to, guess, counter, correct; 
+       from = parseInt(document.getElementById('from').value);
+       to = parseInt(document.getElementById('to').value);
+       counter = 0;
+	   correct = false;
+	   
+	   
+	   response = null;
+	   
+       document.getElementById('outputDiv').innerHTML = '';
+			if (to < from)
+			{
+				alert('Your first number must be smaller than your second!!!');
+			}
+			while (correct == false)
+			{
+				guess = Math.floor((to + from) / 2);
+				document.getElementById('outputDiv').innerHTML = document.getElementById('outputDiv').innerHTML +
+				guess + '<br>';
+				
+				
+				response = prompt('Did you think of ' + guess + '?\n( yes / high / low )');
+					
+						if (response == null)
+						{
+							cancel;
+						}
+						if (to == guess || from == guess)
+						{
+							alert('You are cheating!NOOB!!');
+							cancel;
+							
+						}
+						if (response == 'high')
+						{
+							to = guess;
+							
+							counter= counter + 1;
+							
+							
+							
+						}
+							else if (response == 'low')
+							{
+								
+								counter = counter + 1;
+								from = guess;
+								
+							}
+								else if (response == 'yes')
+								{
+									correct = true;
+									counter = counter + 1;
+									document.getElementById('outputDiv').innerHTML = 
+									document.getElementById('outputDiv').innerHTML + '<br>It took ' + counter + ' guess(es)!';
+									
+						
+								}
+			}	
+		
+			
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+     }
+	 
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center">
+   <h2>Guessing Game</h2>
+   <hr />
+   <p>
+     Think of a number between 
+        <input type="text" id="from" size=5 value="1" />
+	 to <input type="text" id="to" size=5 value="100" />
+	 <br /><br />
+     <input type="button" value="Click to play the game" onClick="PlayHiLow();" />
+	 <hr>                  
+	<div id="outputDiv"></div>
+	<br /><br />
+	<hr>
+   </p>
+ </body>
+</html>

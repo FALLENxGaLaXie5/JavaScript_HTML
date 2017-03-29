@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- cipher.html                              Joshua Steward --> 
+<!-- This page encodes messages using a simple substitution  -->
+<!-- cipher (with message and key entered by the user)       -->
+<!-- ======================================================= -->
+
+<html>
+ <head>
+   <title> Substitution Cipher</title>
+
+   <script type="text/javascript">
+     function Encode()
+     // Assumes: the message to be encoded is in messageBox (all caps),
+     //          the key for encoding is in keyBox (all caps)
+     // Results: the coded version of message is displayed in outputDiv
+     {
+       var message, key, alphabet, coded, i, ch, index;
+
+       message = document.getElementById('messageArea').value;
+       key = document.getElementById('keyBox').value;
+       alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+       coded = '';  
+       
+       i = 0;                                    
+       while (i < message.length) {     		// FOR AS MANY LETTERS AS THERE ARE
+         ch = message.charAt(i);       			//   ACCESS EACH LETTER IN MESSAGE
+         index = alphabet.indexOf(ch);     		//   FIND ITS POSITION IN ALPHABET
+         if (index == -1) {              		//   IF NOT A CAPITAL LETTER,
+           coded = coded + ch;           		//     THEN ADD IT UNCHANGED
+         }                                 		//   OTHERWISE,
+         else {                            		//     ADD THE CORRESPONDING LETTER
+           coded = coded + key.charAt(index); 	//     IN THE KEY STRING
+         }
+         i = i + 1;
+       }
+       
+       document.getElementById('outputDiv').innerHTML = coded;
+     }
+	 //The tests were verified using the Atbash, Caesar, and Mystery ciphers.
+	 //Works great!
+	 
+   </script>
+ </head>
+
+ <body>
+  <h2>Substitution Cipher</h2>
+  <p>
+    Key: <input type="text" id="keyBox" size=26 value="ZYXWVUTSRQPONMLKJIHGFEDCBA">
+  </p>
+  <p>
+    Enter your message below: <br>
+    <textarea id="messageArea" rows=8 cols=30></textarea> <br>
+    <input type="button" value="Encode the Message" onclick="Encode();">
+  </p>
+  <hr>
+  <div id="outputDiv"></div>
+ </body>
+</html>

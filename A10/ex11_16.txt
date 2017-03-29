@@ -1,0 +1,14 @@
+		Joshua Steward
+Exercise 11.16
+
+1. True only if roll1 and roll2 BOTH equal 1.
+2. True either if roll1 +roll2 = 11 or 12. 
+3. True if roll1 is between 2 and 5, exclusively.
+4. True either if roll3 is less than 3 or greater than 4.
+5. True only if all 3 rolls are equal.
+6. True only if all 3 rolls are equal to 1.
+
+7. This is saying that it is true if roll1 does not equal roll2 AND roll2 does not equal roll3. 
+   When there are 6 different possibilities for values, this does not mean it only evaluates to 
+   true if all three have unique values. Roll1 could easily be equal to roll3 and roll2 not equal
+   to either one. A correct expression would be (roll1 != roll2 && roll2 != roll3 && roll1!= roll3).

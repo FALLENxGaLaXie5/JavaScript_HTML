@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- surface.html                                      				Joshua Steward -->
+<!-- This page uses the mosteller formula to calculate a person's surface area.    -->
+<!-- ===========================================================================   -->
+
+<html>
+ <head>
+   <title>Surface Area Calculator</title>
+   <script type="text/javascript" src="convert.js"></script>
+   <script type="text/javascript">
+  
+	
+	function GenerateSurfaceArea()
+	//Assumes:
+	//Results:
+	{
+		var inches, lbs, heightCM, weightKILO, sa;
+		
+		inches = parseFloat(document.getElementById('inchBox').value);
+		lbs = parseFloat(document.getElementById('lbsBox').value);
+		heightCM = InchesToCentimeters(inches);
+		weightKILO = PoundsToKilograms(lbs);
+		sa = Math.sqrt((heightCM * weightKILO)/3600);
+		saFT = SquareMetersToSquareFeet(sa);
+		document.getElementById('outputDiv').innerHTML = 
+		'The surface area is ' + saFT + ' square feet.';
+		}
+	
+   </script>
+ </head>
+ 
+ <body>
+ <h2> Calculate Surface Area </h2>
+   <p>	Height in inches:
+		<input type="text" id="inchBox" size=6 value=1>
+		<br>
+		Weight in pounds:
+		<input type="text" id="lbsBox" size=6 value=1>
+		<br>	
+		<input type="button" value="Calculate Surface Area"
+			onclick="GenerateSurfaceArea();">
+			</p>
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html> 

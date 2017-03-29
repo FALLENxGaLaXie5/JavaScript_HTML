@@ -1,0 +1,9 @@
+ex15_16.txt 				Joshua Steward
+						copy			i		str.charAt(i)
+before loop				''				0			'f'
+after 1st loop pass		f-				1			'o'					
+after 2nd loop pass		f-o-			2			'o'		
+after 3rd loop pass		f-o-o-			3			'b'
+after 4th loop pass		f-o-o-b- 		4			'a'
+after 5th loop pass		f-o-o-b-a-		5			'r'
+after 6th loop pass		f-o-o-b-a-r-	6			''		

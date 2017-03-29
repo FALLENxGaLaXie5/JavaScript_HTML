@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- tip.html                             Joshua Steward -->
+<!-- Web page that calculates the tip amount on a check. -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Tip Calculator </title>
+   <script type="text/javascript">
+		function GenerateTip()
+		// Assumes: amountBox and percentBox are called and taken out of their strings. Also assumes that Variables tip and finalTIP define calculations necessary.
+		// Results: Calculates tip based on text box inputs and displays it with outputDiv.
+		{
+			amount = parseFloat(document.getElementById('amountBox').value);
+					percentTip = parseFloat(document.getElementById('percentBox').value);
+                   tip = amount * (percentTip/100);
+				   finalTIP = Math.ceil(tip*100)/100;
+                   document.getElementById('outputDiv').innerHTML=
+                       'You should tip $' + finalTIP;
+		}			   
+		
+   </script>
+ </head>
+
+ <body>
+   <h2>Tip Calculator</h2>
+   <p>
+     Enter the check amount: $<input type="text" id="amountBox" size=10 value="">
+     <br>
+	 
+     Enter the tip percentage: <input type="text" id="percentBox" size=10 value="15"> %
+   </p>   
+   <input type="button" value="Calculate Tip" 
+          onclick="GenerateTip();">
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

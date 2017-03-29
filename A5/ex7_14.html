@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- bannerads.html                                    Joshua Steward-->
+<!-- This page displays banner ads that change at regular intervals. -->
+<!-- =============================================================== -->
+
+<html>
+ <head>
+   <title> Random Banner Ads </title>
+   <script type="text/javascript">
+     function SelectAd() 
+     // Assumes: the banners ad0.gif, ad1.gif, ad2.gif, and ad3.gif are
+     // stored in http://balance3e.com/Images
+     // Results: displays the next banner ad image in the page
+     {
+          adNum = Math.floor(4*Math.random())+ 1;
+          sizeV= document.getElementById('adImg').src=
+                 'slide' + adNum + '.jpg';
+	// The link to the ads wasn't working so I put in the pictures I used for the slide show. Hope that's ok.			 
+     }
+	 function YourImg()
+	 //Assumes: 
+	 //Results:
+	 {
+		SelectAd().style.height = '200px';
+		SelectAd().style.height = '200px';
+	// I was trying to figure out how to make the pictures have a uniform size, but it didn't work. 	
+		
+	 }
+   </script>
+ </head>
+
+ <body onload="setInterval('YourImg()', 10000);" height=200 width=200>
+   <div style="text-align:center"> 
+     <img id="adImg" alt="banner ad" 
+          src="slide1.jpg">
+   </div>
+   <p>
+     Contents of the page.
+   </p>
+ </body>
+</html>

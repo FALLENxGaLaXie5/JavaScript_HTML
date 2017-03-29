@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- countdown.html                           Joshua Steward --> 
+<!-- This page displays a halving countdown from a specified number. --> 
+<!-- ======================================================= -->
+
+<html>
+ <head> 
+   <title> Countdown </title>
+   <script type="text/javascript">  
+     function Countdown()
+     // Assumes: countBox contains a non-negative integer
+     // Results: displays a countdown from that number in outputDiv
+     {
+       var count, count2;
+       count2 = 0;
+	   
+       count = parseFloat(document.getElementById('countBox').value);         
+       document.getElementById('outputDiv').innerHTML = '';   
+
+       while (count > 0) {                                 
+         document.getElementById('outputDiv').innerHTML =  
+           document.getElementById('outputDiv').innerHTML + count + '<br>';  
+         count = Math.floor(count/2);  
+		 count2 = count2 + 1;
+		
+       }  
+	   
+
+       document.getElementById('outputDiv').innerHTML = 
+         document.getElementById('outputDiv').innerHTML + '0'+'<br><br>BLASTOFF!'; 
+		document.getElementById('outputDiv2').innerHTML =
+		'The number of times the value is halved before reaching zero is '+ count2;
+		// 32 must be halved 6 times before reaching zero.
+		//64 must be halved 7 times before reaching zero.
+		//128 must be halved 8 times before reaching zero.
+		//6000 must be halved 13 times before reaching zero.
+		//308000000 must be halved 29 times before reaching zero.
+		//6800000000 must be halved 33 times before reaching zero.
+		
+	}
+   </script> 
+ </head> 
+
+ <body>
+   <p>
+     Start of the countdown: <input type="text" id="countBox" size=4 value=10>
+   </p>
+   <input type="button" value="Begin Countdown" onclick="Countdown();" />
+   <hr />
+   <div id="outputDiv"></div><br>
+   <div id="outputDiv2"></div>
+ </body>
+</html>

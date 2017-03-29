@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- grammar.html    Joshua Steward			        -->
+<!-- This page implements Lab RandomSenteces    	-->
+<!---------------------------------------------------->
+
+<html>
+	<head>
+		<title> Random Word Generator </title>
+
+		<script type="text/javascript" src="http://balance3e.com/random.js"></script>
+
+		<script type="text/javascript">
+		  function noun()
+		  // Assumes: nothing
+		  // Returns: random noun
+		  {
+			  return RandomOneOf(['man', 'woman', 'ball']);
+		  }
+		  
+		  function verb()
+		  //Assumes:
+		  //Returns:
+		  {
+			  return RandomOneOf(['hit', 'liked', 'smelled', 'destroyed', 'obliterated']);
+		  
+		  }
+		  
+		  function article()
+		  //Assumes:
+		  //Returns:
+		  {
+			  return RandomOneOf(['the', 'a', 'some']);
+		  
+		  }
+		  
+		  function sentence()
+		  //Assumes:
+		  //Returns:
+
+		</script>
+	</head>
+
+	<body style="text-align:center">
+		<h2>Random Sentence Generator</h2>
+		<p>
+		  <input type="button" value="Noun" 
+				   onclick="document.getElementById('outputDiv').innerHTML = noun();" />
+		</p>
+		<hr>
+		<div id="outputDiv"></div>
+	</body>
+</html>

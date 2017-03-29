@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- dice.html                            Joshua Steward -->
+<!-- This page simulates and displays the roll of a die. -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Die Rolls </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   
+   <script type="text/javascript">
+     function SelectImage()
+     // Assumes: die images are in balance3e.com/Images
+     // Results: displays a randomly selected image of a 6-sided die
+     {
+       roll= RandomInt(1, 6);
+       imgName='http://balance3e.com/Images/die' + roll + '.gif';
+	 // For some reason I wasn't understanding how the
+	 // constructing the url like this worked, but I have it now.  
+       document.getElementById('dieImg').src = imgName;
+	   roll2= RandomInt(1, 6);
+       imgName2='http://balance3e.com/Images/die' + roll2 + '.gif';
+       document.getElementById('dieImg2').src = imgName2;
+	  
+     }
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center"> 
+     <p>
+		<img id="dieImg2" alt="die image"
+            src="http://balance3e.com/Images/die1.gif">
+       <img id="dieImg" alt="die image"
+            src="http://balance3e.com/Images/die1.gif">
+     </p>
+     <input type="button" value="Click to Roll" onclick="SelectImage();">
+   </div>
+ </body>
+</html>

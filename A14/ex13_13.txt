@@ -1,0 +1,28 @@
+ex13_13.txt					Joshua Steward
+1. This while loop will evalualte 5 times. The first time, it will output 10, then 8, then 6, then 4, then 2, all with a break between.
+	Next, after the last break and all 5 previous values, it will display "DONE WITH FIRST!"
+	View:
+		10
+		8
+		6
+		4
+		2
+		DONE WITH 1ST!
+
+2. This loop will evaluate 5 times, first at 1, then 2, then 3, then 4, then 5. Finally, it will display the last break and "DONE WITH 2ND!"
+	View:
+		1
+		2
+		3
+		4
+		5
+		DONE WITH 2ND!
+		
+3. This loop will evaluate 3 times, first at x=1 and y=10, then x=2 and y=8, then x=3 and y=6, then it will display after a break 'DONE WITH 3RD!"
+	View:
+		1 10
+		2 8
+		3 6
+		DONE WITH 3RD!
+		
+		

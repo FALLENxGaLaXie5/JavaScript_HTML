@@ -1,0 +1,28 @@
+<!doctype html>
+<!-- tip.html                                  Dave Reed -->
+<!-- Web page that calculates the tip amount on a check. -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Tip Calculator </title>
+ </head>
+
+ <body>
+   <h2>Tip Calculator</h2>
+   <p>
+     Enter the check amount: $<input type="text" id="amountBox" size=10 value="">
+     <br>
+	 
+     Enter the tip percentage: <input type="text" id="percentBox" size=10 value="15"> %
+   </p>   
+   <input type="button" value="Calculate Tip" 
+          onclick="amount = parseFloat(document.getElementById('amountBox').value);
+					percentTip = parseFloat(document.getElementById('percentBox').value);
+                   tip = amount * (percentTip/100);
+                   document.getElementById('outputDiv').innerHTML=
+                       'You should tip $' + tip;">
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

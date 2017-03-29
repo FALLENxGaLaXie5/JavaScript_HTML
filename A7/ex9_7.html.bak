@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- metric.html                                      Joshua Steward -->
+<!-- This page converts between English and Metric measurements.     -->
+<!-- =============================================================== -->
+
+<html>
+ <head>
+   <title>Metric Conversion</title>
+   <script type="text/javascript" src="convert.js"></script>
+   <script type="text/javascript">
+     function ConvertToCm()
+     // Assumes: inchBox contains a distance in inches
+     // Results: displays the distance in centimeters in outputDiv
+     {
+       var inches, cm;
+       
+       inches = parseFloat(document.getElementById('inchBox').value);
+       cm = InchesToCentimeters(inches);
+       document.getElementById('outputDiv').innerHTML = 
+         'That is ' + cm + ' centimeters.';
+     }
+	 function ConvertToIn()
+	 //Assumes: cmBox contains a distance in centimeters
+	 //Results: displays the distance in inches in outputDiv
+	 {
+		var cm, inches;
+		
+		cm = parseFloat(document.getElementById('cmBox').value);
+		inches = CentimetersToInches(cm);
+		document.getElementById('outputDiv').innerHTML = 
+		'That is ' + inches + ' inches.';
+	 }
+
+	function ConvertTo
+   </script>
+ </head>
+ 
+ <body>
+   <p>Length in inches:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" id="inchBox" size=6 value=1>
+      <input type="button" value="Convert to Centimeters"
+             onclick="ConvertToCm();"><br>
+		Length in centimeters:	 
+		<input type="text" id="cmBox" size=6 value=1>
+		<input type="button" value="Convert to Inches"
+			 onclick="ConvertToIn();">
+		<br>
+		Weight in kilograms:
+		<input type="text" id="kiloBox" size =6 value=1>
+		<input type="button" value="Convert to Pounds"
+			onclick="ConvertToLbs();">
+		<br>	
+		Weight in pounds:
+		<input type="text" id="lbsBox" size=6 value=1>
+		<input type="button" value="Convert to Kilograms"
+			onclick="ConverToKilo();">
+		<br>	
+		Area in square meters:
+		<input type="text" id="metersBox" size=6 value=1>
+		<input type="button" value="Convert to square feet"
+			onclick="ConvertToFt();">
+		<br>
+		Area in square feet:
+		<input type="text" id="feetBox" size=6 value=1>
+		<input type="button" value="Convert to square meters"
+			onclick="ConvertToMeters();">
+			
+			 
+		
+   </p>
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html> 

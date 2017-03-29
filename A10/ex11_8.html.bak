@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- stats.html                              Joshua Steward -->
+<!-- This page simulates dice rolls and keeps a roll count. -->
+<!-- ====================================================== -->
+
+<html>
+ <head>
+   <title> Die Rolls </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   <script type="text/javascript">
+     function RollDice()
+     // Assumes: die images are in http://balance3e.com/Images
+     // Results: displays 2 random die rolls & keeps a count in rollSpan
+     {
+       var roll1, roll2;
+       
+       roll1 = RandomInt(1, 6);
+       roll2 = RandomInt(1, 6);
+	  
+			
+       document.getElementById('die1Img').src = 
+         'http://balance3e.com/Images/die' + roll1 + '.gif';
+       document.getElementById('die2Img').src = 
+         'http://balance3e.com/Images/die' + roll2 + '.gif';
+       
+       document.getElementById('rollSpan').innerHTML=
+         parseFloat(document.getElementById('rollSpan').innerHTML) + 1;
+		if (roll1 == roll2)
+			{
+			document.getElementById('rollDoubles').innerHTML =
+			parseFloat(document.getElementById('rollDoubles').innerHTML) + 1;
+			}
+			else if (roll1 + roll2 == 7) {
+			document.getElementById('rollSeven').innerHTML=
+			parseFloat(document.getElementById('rollSeven').innerHTML) + 1;
+			}
+			
+		// Statistically, I've been getting between 1/8 and 1/10 doubles, so not as expected.	
+		
+     }
+	 function ResetCounters()
+	 //Assumes: The span elements are defined and have values.
+	 //Results: Resets both span values to 0.
+	 {
+		
+		document.getElementById('rollSpan').innerHTML = 0;
+		document.getElementById('rollDoubles').innerHTML = 0;
+		document.getElementById('rollSeven').innerHTML = 0;
+	 }
+	 
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center"> 
+     <p>
+       <img id="die1Img" alt="die image"
+            src="http://balance3e.com/Images/die1.gif">
+       <img id="die2Img" alt="die image"
+            src="http://balance3e.com/Images/die1.gif">
+     </p>
+     <input type="button" value="Click to Roll" onclick="RollDice();">
+	 <input type="button" value="Reset Counters" onclick="ResetCounters();">
+     <hr>
+     <p>
+       Number of rolls: <span id="rollSpan">0</span><br>
+	   Number of doubles: <span id="rollDoubles">0</span><br>
+	   Number of rolls that equal 7: <span id="rollSeven">0</span>
+	   
+     </p>
+   </div>
+ </body>
+</html>

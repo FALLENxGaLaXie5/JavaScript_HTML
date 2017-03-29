@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- repavg.html                                   Joshua Steward -->
+<!-- This page simulates dice rolls and gets a sum.				 -->
+<!-- ========================================================== -->
+ 
+<html>
+ <head>
+   <title> Dice Roller </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   <script type="text/javascript">
+     function RollUntilDoubles()
+     // Assumes: outputDiv is available for output.
+     // Results: rolls and displays dice based on user input and sums/averages rolls obtained.
+     {
+       var count, roll1, roll2, sum;
+       
+      count = parseFloat(document.getElementById('countBox').value);
+	  sum = 0;
+       document.getElementById('outputDiv').innerHTML='';
+	   
+	   
+    
+			while (count > 0) 
+			{                	
+				roll1 = RandomInt(1, 6);              	
+				roll2 = RandomInt(1, 6);			
+				
+				count = count - 1;
+				sum = sum + roll1 + roll2; 
+				document.getElementById('outputDiv').innerHTML =
+				document.getElementById('outputDiv').innerHTML + roll1 + '-' + roll2 + '<br>';
+				
+			}
+				sum = sum / parseFloat(document.getElementById('countBox').value);
+				document.getElementById('sumBox').value = sum;
+	}
+	// At 100, the average is around 6, at 1,000, it goes up to around 6.5, and at 10,000, it  approaches 7. Therefore, the pattern emerges as you get a closer number, it approaches 7.
+   </script>
+ </head>
+
+ <body>
+   <h2>Dice Roller</h2>
+   <input type="text" id="countBox" size=4 value= 0>
+   
+   <input type="button" value="Roll die" onclick="RollUntilDoubles();">
+   <hr>
+   Average sum of rolls: <input type="text" id="sumBox" size=4 value= 0>
+   <hr>
+   <div id="outputDiv"></div><br>
+   
+   
+   
+ </body>
+</html>

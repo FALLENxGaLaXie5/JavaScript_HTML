@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- repstats.html                                 Joshua Steward -->
+<!-- This page simulates repeated dice rolls and maintains stats. -->
+<!-- ============================================================ -->
+
+<html>
+ <head>
+   <title> Dice Stats </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   <script type="text/javascript">
+     function RollRepeatedly()
+     // Assumes: repsBox contains a non-negative integer
+     // Results: simulates that many dice rolls, displays # of doubles 
+     {
+       var totalRolls, doubleCount, repCount, roll1, roll2, count7, count2;
+              
+       totalRolls = parseFloat(document.getElementById('repsBox').value);
+		count7 = 0;
+		count2 = 0;
+		
+       doubleCount = 0;							// INITIALIZE THE COUNTERS
+       repCount = 0;
+       while (repCount < totalRolls) {         	// REPEATEDLY,
+         roll1 = RandomInt(1, 6);          		// SIMULATE THE DICE ROLLS
+         roll2 = RandomInt(1, 6);
+         if (roll1 == roll2) {                 	// IF DOUBLES,
+           doubleCount = doubleCount + 1;      	// INCREMENT THE COUNTER
+         }
+		 if (roll1 + roll2 == 7){
+			count7 = count7 + 1;
+		 }
+		 if (roll1 + roll2 == 2) {
+			count2 = count2 + 1;
+			
+		 }
+         repCount = repCount + 1;              	// INCREMENT THE REP COUNTER
+       }
+												// DISPLAY THE RESULTS
+       document.getElementById('outputDiv').innerHTML = 
+           'The number of doubles obtained was ' + doubleCount;  
+		document.getElementById('outputDiv2').innerHTML=
+			'The number of sevens obtained was ' + count7;
+		document.getElementById('outputDiv3').innerHTML=
+			'The number of snake eyes obtained was ' + count2;
+		// Yes, they are far more consistent. It's easy to see
+		//if you increase from 100, to 1000, to 1000; it gets far more consistent.
+		
+     }
+   </script>
+ </head>
+
+ <body>
+   <h2>Dice Stats</h2>
+   <p>
+     Desired number of rolls: <input type="text" id="repsBox" size=6 value=1000>
+   </p>
+   <input type="button" value="Click to Roll" onclick="RollRepeatedly();"> 
+   <hr>
+   <div id="outputDiv"></div><br>
+   <div id="outputDiv2"></div><br>
+   <div id="outputDiv3"></div>
+ </body>
+</html>

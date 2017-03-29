@@ -1,0 +1,10 @@
+ex15_2.txt						Joshua Steward
+
+word = 'swarmy';
+word.charAt(0) = 's';
+word.charAt(5) = 'y';
+word.charAt(word.length-1) = 'y';
+word.substring(0, 5) = 'swarm';
+word.substring(4, 5) = 'm';
+word.substring(1, word.length) = 'warmy';
+word.substring(0, word.length - 1) = 'swarm';

@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- greet.html                            Dave Reed -->
+<!-- Web page that displays a personalized greeting. -->
+<!-- =============================================== -->
+
+<html>
+ <head>
+   <title> Greetings </title>
+ </head>
+
+ <body>
+   <h2>Greetings</h2>
+   <p>
+     Enter your name: <input type="text" id="nameBox" size=12 value="">
+   </p>
+   <input type="button" value="Click for Greeting"
+          onclick="document.getElementById('outputDiv').innerHTML=
+                     'Hello <i>' + document.getElementById('nameBox').value + 
+                     '</i>, welcome to my page.<br>Do you mind if I call you <i>' +
+                     document.getElementById('nameBox').value + '</i>?';"> 
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

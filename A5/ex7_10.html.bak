@@ -1,0 +1,63 @@
+<!doctype html>
+<!-- grades.html                                  Dave Reed -->
+<!-- Web page that calculates the tip amount on a check. -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Grade Calculator </title>
+   <script type="text/javascript">
+		function GenerateGrades()
+		// Assumes: homeworkBox, labsBox, midtermsBox, and finalBox are all assigned to their respective variables, and that the gradeBox variable defines all the calculations needed to execute function.
+		// Results: Calculated grade based on inputs is displayed in outputDiv.
+		{
+			var letterGrade, homeworkHW, labsLB, midtermMT, finalFI, gradeBox;
+			
+			
+			homeworkHW = parseFloat(document.getElementById('homeworkBox').value);
+                   labsLB = parseFloat(document.getElementById('labsBox').value);
+				   midtermMT = parseFloat(document.getElementById('midtermsBox').value);
+				   finalFI = parseFloat(document.getElementById('finalBox').value);
+				   gradeBox = (homeworkHW*0.25) + (labsLB*0.20) + (midtermMT*0.25) + (finalFI*0.30);
+				   if (gradeBox < 60) {
+						letterGrade = 'F';
+					}
+					else if (gradeBox < 70) {
+						letterGrade = 'D';
+					}
+					else if (gradeBox < 80) {
+						letterGrade = 'C';
+					}
+					else if (gradeBox < 90) {
+						letterGrade ='B';
+					}
+					else {
+						letterGrade ='A';
+					}
+					
+				   
+					
+                   document.getElementById('outputDiv').innerHTML=
+                       'Your overall course average is ' + gradeBox + '%' +
+					   '<br>Letter Grade: ' + letterGrade;
+		}
+   </script>
+ </head>
+
+ <body>
+   <h2>Grade Calculator</h2>
+   <p>
+     Homework: 25% of grade. <input type="text" id="homeworkBox" size=10 value="">
+     <br>
+     Labs: 20% of grade. <input type="text" id="labsBox" size=10 value="">
+	 <br>
+	 Midterm: 25% of grade. <input type="text" id="midtermsBox" size=10 value="">
+	 <br>
+	 Final Exam: 30 % of grade. <input type="text" id="finalBox" size=10 value"">
+   </p>   
+   <input type="button" value="Calculate Grade" 
+          onclick="GenerateGrades();">
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

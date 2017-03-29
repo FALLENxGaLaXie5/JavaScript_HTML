@@ -1,0 +1,680 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Lab: Experimentation with Algorithms</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2627" name=GENERATOR>
+<style type="text/css">
+.auto-style3 {
+	font-family: "Courier New";
+	font-size: x-small;
+}
+.auto-style5 {
+	font-family: "Courier New";
+	font-size: x-small;
+	margin-left: 80px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.auto-style6 {
+	margin-left: 80px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.auto-style7 {
+	font-family: "Courier New";
+	font-size: 9pt;
+}
+.auto-style8 {
+	margin-left: 120px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.auto-style9 {
+	font-family: "Courier New";
+	font-size: x-small;
+	margin-left: 120px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.auto-style10 {
+	font-size: x-small;
+}
+.auto-style13 {
+	margin-left: 80px;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: x-small;
+}
+.auto-style16 {
+	margin-left: 120px;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: x-small;
+}
+.auto-style17 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style18 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.auto-style19 {
+	color: #000000;
+}
+.auto-style20 {
+	border-collapse: collapse;
+	font-size: 10.0pt;
+	font-family: Calibri, sans-serif;
+	border-style: none;
+	border-color: inherit;
+	border-width: medium;
+}
+.auto-style21 {
+	font-size: 11.0pt;
+	font-family: Calibri, sans-serif;
+	margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+	margin-bottom: .0001pt;
+}
+</style>
+</HEAD>
+<BODY vLink=#8B0000 aLink=#0000FF link=#FF0000 bgColor=white>
+<P align=right><BR></P>
+<CENTER>
+
+<center><h2>Lab: Algorithms</h2>
+        <h3>Lab to accompany <a href="http://balance3e.com">
+        A Balanced Introduction to Computer Science, 3rd ed.</a><br />
+        by David Reed, Pearson Prentice-Hall, &copy;2011.</h3></center>
+
+</CENTER>
+<P><BR></P>
+<P>Chapter 8 introduces the concept of an algorithm, a step-by-step sequence of 
+instructions for carrying out some task. This lab is designed to help you practice writing algorithms and to prepare you to write programs that need to handle choices and repetition.</P>
+<P>Give your answers to the exercises in a <strong>text document</strong> and 
+submit on Blackboard for grading.</P>
+<HR>
+
+<P><u><b><font color="#FF0000" size="5">Notes:</font></b></u><ul>
+	<li>Each algorithm must be written in <i>pseudo-code</i> (please remember the 
+	pseudo-code is not a computer language, but rather a shorthand-like language 
+	that people use to express actions). There are no special grammar rules for 
+	pseudo-code, but to express actions we will utilize the following concepts:
+	  <ul>
+		<li><b>Variables</b> - names that appear in pseudo-code algorithms refer 
+		to places in computer memory where values are stored. The variable name 
+		should reflect the role of its content in the algorithm</li>
+		<li><b>Assignment</b> - if we have variables, we must have a way to put 
+		a value into one. We can use the word <span class="auto-style17">SET</span> to indicate assignment:
+		  <p><font face="Courier New" size="2">SET <i>counter</i> to 1</font></p>
+		<p>This statement indicates to the reader that we need to store a value of 1 into a variable called <font face="Courier New">counter</font>.</li>
+		<li><b>Input/Output</b>
+		<p>- we can use the word <font face="Courier New">WRITE</font> 
+		for output: </p>
+		<blockquote>
+			<p><font face="Courier New" size="2">WRITE &quot;The answer is &quot;</font></p>
+			<p><font face="Courier New" size="2">WRITE counter</font></p>
+			<p>The first statement indicates the action of writing the characters between the double quotation marks 
+		called strings on the screen. The second statement indicates the action 
+			of writing the content of the 
+		variable <font face="Courier New">counter</font> on the screen.</p>
+		</blockquote>
+		<p>- we can use the word <font face="Courier New">READ</font> for input:</p>
+		<blockquote>
+			<p><font face="Courier New" size="2">READ number</font></p>
+			<p>This statement indicates that the user was prompted by the 
+			computer for input. The numeric value entered by the user is saved 
+			in memory in the 
+		variable <font face="Courier New">number</font>.</p>
+		</blockquote>
+		</li>
+		<li><b>Selection</b> - there are two constructs to use to indicate action to be performed 
+		only if a certain condition is met (see also &quot;Algorithm Flow of 
+		Control&quot;):<ol type="a">
+			<li>
+			<P style="margin-top: 0; margin-bottom: 0">if the condition is true, 
+			execute the indented statements; if the condition is not true, skip 
+			the indented statements:</li>
+		</ol>
+		<P style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">IF 
+		(condition)</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">&nbsp;&nbsp; 
+		action_if_condition_true</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">// 
+		rest of the pseudocode</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+		<P style="margin-top: 0; margin-bottom: 0">for example:</p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">IF (temperature &gt; 80)</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; GO to the beach</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">&nbsp;<ol type="a" start="2">
+			<li>
+			<P style="margin-top: 0; margin-bottom: 0">if the condition is true, 
+			execute the indented statements; if the condition is not true, 
+			execute the indented statements below ELSE:</li>
+		</ol>
+		<P style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">IF 
+		(condition)</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">&nbsp;&nbsp; 
+		action_if_condition_true</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">ELSE</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">&nbsp;&nbsp; 
+		action_if_condition_false</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">// 
+		rest of the pseudocode</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+		<P style="margin-top: 0; margin-bottom: 0">for example:</p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">IF (temperature &gt; 80)</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; GO to the beach</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">ELSE</font></p>
+		<P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; STAY home </font>
+		</p>
+		<P style="margin-top: 0; margin-bottom: 0">&nbsp;</li>
+		<li><b>Repetition</b> - repeat the indented statements as long as a 
+		condition is true (see also &quot;Algorithm Flow of 
+		Control&quot;):<P style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+		<P style="margin-top: 0; margin-bottom: 0" class="auto-style10">
+		<font face="Courier New">REPEAT the indented statements x 
+		number of times</font></p>
+		</li>
+	</ul>
+	</li>
+	<ul>
+		<P class="auto-style10">&nbsp;&nbsp;&nbsp; <span class="auto-style17">
+		statement 1</span></p>
+		<P class="auto-style10">...<P class="auto-style10">&nbsp;&nbsp;&nbsp;<span class="auto-style17"> 
+		statement n</span><P style="margin-top: 0; margin-bottom: 0">
+		<font face="Courier New" size="3" class="auto-style10">//rest of the pseudocode</font></ul>
+</ul>
+<P class="auto-style6">&nbsp;</p>
+<P class="auto-style5"><strong>OR</strong></p>
+<P class="auto-style6">&nbsp;</p>
+<P class="auto-style13"><font face="Courier New">WHILE (condition is met)</font></p>
+<P class="auto-style9">statement 1</p>
+<P class="auto-style9">statement 2</p>
+<P class="auto-style6"><span class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp; 
+</span> <span class="auto-style3">&nbsp;...</span></p>
+<P class="auto-style6"><span class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</span> <span class="auto-style3">&nbsp;
+statement n&nbsp;</span></p>
+<P class="auto-style6"><font face="Courier New" size="3" class="auto-style10">//rest of the pseudocode</font></p>
+<P class="auto-style6">&nbsp;</p>
+<P class="auto-style6">for example, if I have 5 
+		candies and want to eat them all, one at the time, I would describe it 
+		using the following algorithm:</p>
+<P class="auto-style6">&nbsp;</p>
+<P class="auto-style5">REPEAT the indented lines 5 
+times</p>
+<P class="auto-style8"><span class="auto-style3">REMOVE wrapper</span><span class="auto-style10">&nbsp;</span></p>
+<P class="auto-style16"><font face="Courier New">EAT one candy</font></p>
+<P class="auto-style16"><font face="Courier New">INCREMENT the 
+		counter by 1</font></p>
+<P class="auto-style13"><font face="Courier New">WRITE &quot;No more candies left&quot;</font></p>
+<P class="auto-style6">&nbsp;</p>
+<P class="auto-style6">however, if I do not know how many 
+		candies I have and want to eat them all, one at the time, I would describe it 
+		using the following algorithm:</p>
+<P class="auto-style6">&nbsp;</p>
+<P class="auto-style5">WHILE there are any candies left</p>
+<P class="auto-style9">REMOVE 
+wrapper</p>
+<P class="auto-style9"><font face="Courier New">EAT one candy&nbsp;&nbsp;&nbsp;
+</font></p>
+<P class="auto-style13"><font face="Courier New">WRITE &quot;No more candies left&quot;</font></p>
+<P class="auto-style6">&nbsp;</p>
+		<ol start="2">
+			<li>
+			<p align="left">Algorithm Flow of Control:</li>
+		</ol>
+		<blockquote>
+			<p align="left">In many algorithms, the sequential flow of control 
+			is the default behavior. However, we often need to alter this flow; 
+			&quot;selection&quot; and &quot;loop&quot; are provided for altering the sequential flow 
+			of control:</p>
+		</blockquote>
+		<table cellSpacing="0" cellPadding="4" width="60%" align="center" border="0" id="table1">
+			<tr>
+				<td width="100">
+				<img height="100" src="seq_icon.gif" width="100"></td>
+				<td vAlign="top">Sequence is composed of a series of statements 
+				which are executed one by one from top to bottom. Sequence is 
+				the default flow of control for many algorithms. </td>
+			</tr>
+			<tr>
+				<td width="100">
+				<img height="100" src="cond_icon.gif" width="100"></td>
+				<td vAlign="top">Selection is used to alter the flow of control 
+				when a choice needs to be made between two or more actions. The 
+				choice is based on the condition that can be either true are 
+				false. This control structure is commonly specified using the 
+				keywords <b><font face="Courier New, Courier, mono" size="2">IF</font></b> 
+				and <b><font face="Courier New, Courier, mono" size="2">ELSE</font></b>.</td>
+			</tr>
+			<tr>
+				<td width="100">
+				<img height="100" src="loop_icon.gif" width="100"></td>
+				<td vAlign="top">Loop is a control structure that causes a set 
+				of statements to be executed repeatedly for as long as the 
+				condition evaluates to true. With each loop iteration, a 
+				condition is checked to determine whether the loop should 
+				continue or end. This control structure is specified using the 
+				key word WHILE or REPEAT.</td>
+			</tr>
+		</table>
+		&nbsp;<P><B><FONT color=red>EXERCISE 1:</FONT></B></P>
+<P class="auto-style19">The algorithm below shows how to convert a postal code 
+into a bar code. Following this algorithm convert <strong>your postal code</strong> 
+to its barcode representation. Show each step.</P>
+<p class="MsoNormal">
+<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+For faster sorting of letters, the United States Postal Service</span><span style="font-size: 10.0pt; mso-bidi-font-size: 11.0pt; line-height: 115%">
+</span>
+<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+encourages companies that send large volumes of mail to use a bar code denoting 
+the ZIP code:<o:p></o:p></span></p>
+<p class="MsoNormal">
+<span style="font-size: 10.0pt; mso-bidi-font-size: 11.0pt; line-height: 115%; mso-no-proof: yes">
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @0 1 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum 0 0 @1" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @2 1 2" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @3 21600 pixelWidth" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @3 21600 pixelHeight" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @0 0 1" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @6 1 2" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @7 21600 pixelWidth" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @8 21600 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @7 21600 pixelHeight" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @10 21600 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ <o:lock v:ext="edit" aspectratio="t" xmlns:o="urn:schemas-microsoft-com:office:office"/>
+</v:shapetype><v:shape id="Picture_x0020_0" o:spid="_x0000_i1025" type="#_x0000_t75"
+ alt="Hp368-9_2p1c.jpg" style='width:464.25pt;height:110.25pt;visibility:visible'>
+ <v:imagedata src="file:///C:\Users\ania\AppData\Local\Temp\msohtmlclip1\01\clip_image001.jpg"
+  o:title="Hp368-9_2p1c" xmlns:v="urn:schemas-microsoft-com:vml"/>
+</v:shape><![endif]--><![if !vml]>
+<img alt="Hp368-9_2p1c.jpg" height="147" src="clip_image002.jpg" v:shapes="Picture_x0020_0" width="619"><![endif]></span><span style="font-size: 10.0pt; mso-bidi-font-size: 11.0pt; line-height: 115%"><o:p></o:p></span></p>
+<p class="MsoNormal">
+<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+The encoding scheme for a five-digit ZIP code is as follow: </span></p>
+<ol>
+	<li>
+	<p class="MsoNormal">
+	<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+	The bar code starts and ends with one full-height frame bar. </span></p>
+	</li>
+	<li>
+	<p class="MsoNormal">
+	<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+	The five encoded digits are followed by a check digit, which is computed as 
+	follows: </span></p>
+	<ol>
+		<li>
+		<p class="MsoNormal">
+		<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+		add up all digits to get their sum</span></p>
+		</li>
+		<li>
+		<p class="MsoNormal">
+		<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+		choose the check digit to make the sum a multiple of 10</span></p>
+		</li>
+		<li>
+		<p class="MsoNormal">
+		<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+		For example, the sum of the digits in the ZIP code 95014 is 19, so the 
+		check digit is 1 to make the sum equal to 20.</span></p>
+		</li>
+	</ol>
+	</li>
+	<li>
+	<p class="MsoNormal">
+	<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black">
+	Each digit of the ZIP code, and the check digit, is encoded according to the 
+	following table, where <strong>: </strong>denotes a half bar and<strong> |</strong> 
+	a full bar:<o:p></o:p></span></p>
+	</li>
+</ol>
+<p class="MsoNormal">
+<span style="font-size: 9.0pt; mso-bidi-font-size: 9.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black"><o:p>
+&nbsp;</o:p></span></p>
+<div align="center">
+	<table border="1" cellpadding="0" cellspacing="0" class="auto-style20" style="mso-border-alt: solid black .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: .5pt solid black; mso-border-insidev: .5pt solid black">
+		<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: .3in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .3in; mso-height-rule: exactly">
+			<p class="auto-style21">Digit<o:p></o:p></p>
+			</td>
+			<td style="border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .3in; mso-height-rule: exactly">
+			<p class="auto-style21">Mapping<o:p></o:p></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 1; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">1<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			:::||</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 2; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">2<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			::|:|</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 3; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">3<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			::||:</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 4; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">4<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			:|::|</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 5; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">5<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			:|:|:</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 6; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">6<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			:||::</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 7; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">7<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			|:::|</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 8; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">8<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			|::|:</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 9; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">9<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			|:|::</strong></span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 10; mso-yfti-lastrow: yes; height: .2in; mso-height-rule: exactly">
+			<td style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt">0<o:p></o:p></span></p>
+			</td>
+			<td style="border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: .2in; mso-height-rule: exactly">
+			<p class="auto-style21">
+			<span style="font-size: 9.0pt; mso-bidi-font-size: 11.0pt"><strong>
+			||:::</strong></span></p>
+			</td>
+		</tr>
+	</table>
+</div>
+<p class="MsoNormal">
+<span style="font-size: 10.0pt; mso-bidi-font-size: 11.0pt; line-height: 115%"><o:p>
+&nbsp;</o:p></span></p>
+<p><b><font color="red">EXERCISE 2:</font></b>&nbsp; </p>
+<p><span class="fnt0">You are driving a car and you are approaching an 
+intersection. The intersection may be a &quot;four-way-stop&quot; or a &quot;traffic light 
+controlled&quot; intersection. Write the algorithm that describes how to cross the 
+intersection. Assume that you are not turning but driving straight-on.</span></p>
+<p><B><FONT color=red>EXERCISE 3:</FONT></B>&nbsp; 
+  	</p>
+<p><span class="fnt0">Write the algorithm to save several new phone numbers in 
+the address book of your cell phone. The algorithm should work regardless if 
+there is only one new phone number or several new phone numbers to save. 
+Remember to handle the scenario where the address book is full.</span></p>
+<p><B><FONT color=red>EXERCISE 4:</FONT></B>&nbsp;&nbsp;</p>
+<p class="MsoNormal">Below, there are three solutions provided to the following 
+Problem Statement: <i>&quot;Write the algorithm to read in three numbers, add them 
+up, and write out the result.&quot; </i></p>
+<ol>
+	<li>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">Analyze each 
+	solution and select the algorithm that you like the most.</li>
+	<li>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">Justify your 
+	selection.</li>
+</ol>
+<p class="MsoNormal"><u>Solution #1</u></p>
+<blockquote>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;
+	</font>
+	<font face="Courier New" style="font-size: 9pt">// this algorithm uses 4 
+	variables:
+	</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; // - <i>sum</i> - to 
+	store the result of addition</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; // - <i>firstNumber</i> 
+	- to store the first number</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; // - <i>secondNumber
+	</i>- to store the second number</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; // - <i>thirdNumber</i> 
+	- to store the third number</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">SET <i>sum</i> to 0</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">READ <i>firstNumber</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">READ <i>secondNumber</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">READ <i>thirdNumber</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<span class="auto-style7">ADD</span><font face="Courier New" style="font-size: 9pt">
+	<i>firstNumber</i> to sum</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<span class="auto-style7">ADD</span><font face="Courier New" style="font-size: 9pt"> 
+	second<i>Number</i> to sum</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<span class="auto-style7">ADD</span><font face="Courier New" style="font-size: 9pt">
+	<i>thirdNumber to sum</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE “Sum =&nbsp; “</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE <i>sum</i></font></p>
+</blockquote>
+<p class="MsoNormal"><u>Solution #2</u></p>
+<blockquote>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">SET <i>sum</i> to 0</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<span class="auto-style7">REPEAT</span><font face="Courier New" style="font-size: 9pt"> the indented lines 3 times</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp;READ <i>number</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp;ADD number to sum<i> </i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE “Sum = “</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE <i>sum</i></font></p>
+</blockquote>
+<p class="MsoNormal"><u>Solution #3 </u></p>
+<blockquote>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">SET <i>sum</i> to 0</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">SET <i>counter</i> to 0</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE “Sum of “</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">REPEAT the indented lines 3 times</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp;READ <i>number</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp;WRITE <i>number</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp;ADD number to sum</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE “ = “</font></p>
+	<p style="margin-top: 0; margin-bottom: 0">
+	<span style="font-family: Courier New"><font style="font-size: 9pt">WRITE <i>sum</i></font></span></p>
+	<p style="margin-top: 0; margin-bottom: 0">&nbsp;
+	</p>
+</blockquote>
+<p><B><FONT color=red>EXERCISE 5:</FONT></B></p>
+<P><span style="font-family: Times New Roman">Using solution #3 as an example write the algorithm to read in 100 
+	numbers and sum up only the numbers that are even. Write out the result. </span></P>
+<p><B><FONT color=red>EXERCISE 6:</FONT></B></p>
+<P><span style="font-family: Times New Roman">The following algorithm has two 
+	solutions to the following </span><font face="Times New Roman">Problem 
+	Statement: </font>
+<span style="font-family: Times New Roman; font-style: italic">&quot;Write the 
+	algorithm to sum up the first four even numbers (2, 4, 6, 8) and to write 
+	out the result.&quot; </span></P>
+<ol>
+	<li><span style="font-family: Times New Roman">Which solution is better 
+		and why (think about adding 10000 numbers)?</span></li>
+	<li><span style="font-family: Times New Roman">Using solution #2 as an 
+		example write the algorithm to calculate the <u>product</u> of the first five 
+		odd numbers (1, 3, 5, 7, 9) and to write out the result.</span></li>
+</ol>
+<p>&nbsp;</p>
+<p class="MsoNormal"><u>Solution #1</u></p>
+<blockquote>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">SET <i>sum</i> to 2</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<span class="auto-style7">ADD</span><font face="Courier New" style="font-size: 9pt"> <i>
+	4 to sum</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">ADD <i>6 to sum</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">ADD 8 to <i>sum</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE “Sum = “</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE <i>sum</i></font></p>
+</blockquote>
+<p class="MsoNormal">&nbsp;<u>Solution #2</u></p>
+<blockquote>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">SET <i>sum</i> to 0</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">SET <i>number</i> to 2</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE “Sum of “</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<span class="auto-style7">REPEAT</span><font face="Courier New" style="font-size: 9pt"> the indented lines 4 times&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE 
+	<i>number</i></font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD number to sum</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;&nbsp; 
+	INCREMENT number by 2</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE “ = “</font></p>
+	<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+	<font face="Courier New" style="font-size: 9pt">WRITE <i>sum</i></font></p>
+</blockquote>
+<P><BR>
+</P>
+<p><B><FONT color=red>EXERCISE 7:</FONT></B></p>
+<P><span class="fnt0">Write 
+	the algorithm to read in three integers and find the smallest of the three. 
+	Write out the result.</span></P>
+<P class="auto-style18">&nbsp;</P>
+<P><B><FONT color=red>EXERCISE 8:</FONT></B></P>
+<P>Write an <span style="font-weight: bold;">algorithm</span>&nbsp; for&nbsp;a game based 
+on the following requirements:<br><br><span style="font-style: italic;">Write a 
+web-based application that allows a player to create a game character and 
+purchase some experience, health, and supplies before the game begins. The page 
+provided should ask for a <span style="text-decoration: underline;">character 
+name</span>, <span style="text-decoration: underline;">character type</span>,
+<span style="text-decoration: underline;">the number of experience tokens to be 
+purchased</span>, <span style="text-decoration: underline;">the number of health 
+tokens to be purchased</span>, and <span style="text-decoration: underline;">the 
+number of supply tokens to be purchased</span>. These inputs should be given to 
+a function called </span><span style="font-weight: bold; font-style: italic;">
+game</span><span style="font-style: italic;"> for processing.</span><br style="font-style: italic;">
+<br style="font-style: italic;"><span style="font-style: italic;">The function</span><span style="font-weight: bold; font-style: italic;"> 
+game</span><span style="font-style: italic;"> should calculate the cost of the 
+purchase in gold pieces based on the formula given in the next sentence, and 
+return the calculated <span style="text-decoration: underline;">total cost</span>. 
+Formula: every 10 health tokens cost 1 gold piece; every 2 experience tokens 
+cost 1 gold piece; every 25 supply tokens cost 1 gold piece. </span>
+<br style="font-style: italic;"><br style="font-style: italic;">
+<span style="font-style: italic;">The application should display the character's 
+name and type, the number of each tokens purchased, and the total cost</span>.<br>
+<br><span style="font-weight: bold;"><br>
+IMPORTANT: Do not implement this 
+algorithm in JavaScript. You are only writing the algorithm as the set of steps in <em>pseudocode</em>.</span></P>
+
+</BODY></HTML>

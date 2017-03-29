@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- roll.html                                    Joshua Steward-->
+<!-- This page simulates dice rolls until doubles are obtained. -->
+<!-- ========================================================== -->
+ 
+<html>
+ <head>
+   <title> Dice Roller </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   <script type="text/javascript">
+     function RollUntilDoubles()
+     // Assumes: outputDiv is available for output
+     // Results: rolls and displays dice until doubles are obtained
+     {
+       var roll1, roll2;
+       
+       roll1 = RandomInt(1, 6);            		// ROLL AND DISPLAY DICE
+       roll2 = RandomInt(1, 6);
+       document.getElementById('outputDiv').innerHTML=roll1+'-'+roll2+'<br >';
+    
+       while (roll1 != roll2) {                	// WHILE NOT DOUBLES,
+         roll1 = RandomInt(1, 6);              	// ROLL AGAIN AND DISPLAY AT
+         roll2 = RandomInt(1, 6);				// THE END OF THE PAGE DIVISION
+         document.getElementById('outputDiv').innerHTML = 
+           document.getElementById('outputDiv').innerHTML+roll1+'-'+roll2+'<br>';
+       }
+       
+       document.getElementById('outputDiv').innerHTML = 
+         document.getElementById('outputDiv').innerHTML+'DOUBLES!';
+     }
+   </script>
+ </head>
+
+ <body>
+   <h2>Dice Roller</h2>
+   <input type="button" value="Roll until doubles" onclick="RollUntilDoubles();">
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

@@ -1,0 +1,69 @@
+// convert.js				Joshua Steward
+// Functions for converting between English and Metric values
+///////////////////////////////////////////////////////////////
+
+function InchesToCentimeters(inches) 
+// Assumes: inches is a distance, measured in inches 
+// Returns: the corresponding distance in centimeters
+{
+  var cm;
+
+  cm = inches * 2.54;
+  return cm;
+}
+
+function CentimetersToInches(cm) 
+// Assumes: cm is a distance, measured in centimeters 
+// Returns: the corresponding distance in inches
+{
+  var inches;
+
+  inches = cm / 2.54;
+  return inches;
+}
+
+
+function PoundsToKilograms(lbs)
+//Assumes:
+//Returns:
+{
+  var kilo; 
+  
+  kilo = lbs / 2.205;
+  return kilo;
+  }
+  
+
+function KilogramsToPounds(kilo)
+//Assumes:
+//Returns:
+{
+	var lbs;
+	
+	lbs= kilo * 2.205
+	return lbs;
+}
+
+
+function SquareFeetToSquareMeters(feet)
+//Assumes:
+//Returns:
+{
+	var meters;
+	
+	meters= feet / 10.764
+	return meters;
+}
+
+
+function SquareMetersToSquareFeet(meters)
+//Assumes:
+//Returns:
+{
+	var feet;
+	
+	feet= meters * 10.764
+	return feet;
+}
+	
+  

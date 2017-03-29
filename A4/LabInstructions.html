@@ -1,0 +1,192 @@
+<HTML>
+
+<HEAD>
+  <TITLE>Lab: Interactive Pages and Pirate Talk</TITLE>
+  <style type="text/css">
+.auto-style1 {
+	font-family: "Courier New", Courier, monospace;
+}
+.auto-style2 {
+	margin-left: 40px;
+}
+.auto-style3 {
+	text-align: center;
+}
+</style>
+</HEAD>
+
+<BODY BGCOLOR="white" LINK="red" VLINK="darkred" ALINK="blue">
+
+<P ALIGN="right">&nbsp;</P>
+
+<P><BR><BR></P>
+
+<center><h2>Lab: Interactive Pages and Pirate Talk</h2>
+        <h3>Lab to accompany <a href="http://balance3e.com">
+        A Balanced Introduction to Computer Science, 3rd ed.</a><br />
+        by David Reed, Pearson Prentice-Hall, &copy;2011.</h3></center>
+
+<P><BR></P>
+
+<p>In 1995, John Baur and Mark Summers invented a new holiday, 
+International Talk Like a Pirate Day.  As they proposed it, on every September 19th, 
+people all around the world would be united in common purpose by talking like a
+pirate (with lots of "Arrrrs" and "Ahoys" and the like).  Since then, International
+Talk Like a Pirate Day has received widespread publicity, especially since 
+columnist Dave Barry began lobbying for the holiday.  At the official Talk Like a 
+Pirate Day Web site, <a 
+href="http://www.talklikeapirate.com">www.talklikeapirate.com</a>,
+you can read about the history of the holiday, order official merchandise, and even
+experiment with a simple Web page that translates simple English phrases into pirate 
+talk.
+
+<p>The following Web page is a framework for an alternative English-to-Pirate
+translator.  As is, it contains two buttons, labeled "hello" and "stranger", 
+and an empty page division.  When the user clicks on a button, the corresponding Pirate word 
+or phrase is added to the page division.  For example, if the user were to click on 
+the "hello" button, the word "ahoy" will appear in the page division.  If she then clicks
+on the "stranger" button, then "scurvy dog" is added to the page division, resulting in the 
+phrase
+"ahoy scurvy dog."
+
+<p>
+<table border=1 align="center">
+<tr><td>
+<font size=-1>
+<xmp><!doctype html>
+<!-- pirate.html                               Dave Reed -->
+<!-- Simple page that translates words/phrases from      -->
+<!-- English to pirate at the click of a button.         -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Pirate Translator </title>
+ </head>
+
+ <body>
+   <h3>Land Lubber's Pirate Translator</h3>
+   <p>Simply click on the buttons to translate
+      words and/or phrases from English to pirate talk.
+   </p>
+   <p>
+     <input type="button" value="hello" 
+            onclick="document.getElementById('outputDiv').innerHTML= 
+                       document.getElementById('outputDiv').innerHTML + 'ahoy ';">
+     <input type="button" value="stranger" 
+            onclick="document.getElementById('outputDiv').innerHTML = 
+                       document.getElementById('outputDiv').innerHTML + 'scurvy dog ';">
+   </p>
+   <hr>
+   <div id="outputDiv" class="auto-style3"></div>
+ </body>
+</html>
+</xmp></font>
+</table>
+ 
+<P><BR></P> 
+
+<P><BR></P>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 1:</FONT></B> &nbsp;&nbsp; The above Web page is named <tt>pirate.html </tt>and is included 
+	in your assignment folder.<tt> </tt>Save it to your A4 folder, open it with 
+	Notepad++ and 
+verify that it behaves as described.
+
+<p>As the page is currently written, multiple translations are awkward.  If you 
+finish translating one phrase and want to begin a new one, you must reload the page to 
+clear the page division.  To make repeated translations easier, add a button labeled 
+"Clear the Translation"
+below the word/phrase buttons.  When the user clicks on this button, the contents
+of the page division should be cleared. It can be achieved by assigning its INNERHTML attribute to be the 
+empty string: <span class="auto-style1">document.getElementById('outputDiv').innerHTML 
+= '';</span></P>
+
+<P><img height="198" src="img1.GIF" width="554"></P>
+
+</BLOCKQUOTE>
+ 
+
+<P><BR></P>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 2:</FONT></B> &nbsp;&nbsp;
+Extend <tt>pirate.html</tt> by adding new words and phrases.  For each new word or 
+phrase, you will need to add a button with the appropriate label and translated
+pirate phrase.  At a minimum, you must add the new words and phrases below.
+However, feel free to add a larger vocabulary 
+(see <a href="http://www.talklikeapirate.com">www.talklikeapirate.com</a> for ideas).
+
+<blockquote>
+<table>
+<tr><th><th align=left><u>English word/phrase</u></th><th>&nbsp;&nbsp;&nbsp;&nbsp;<th 
+align=left><u>Pirate 
+equivalent</u></th>
+<tr><td>Greetings: &nbsp;&nbsp;<td>pardon me</td><td></td><td>avast</td>
+<tr><td><td>excuse me</td><td></td><td>arrr</td>
+<tr><td>People:<td>sir</td><td></td><td>matey</td>
+<tr><td><td>madam</td><td></td><td>proud beauty</td>
+<tr><td><td>officer</td><td></td><td>foul blaggart</td>
+<tr><td>Questions:<td>where is</td><td></td><td>whar be</td>
+<tr><td><td>can you help me find</td><td></td><td>know ye</td>
+<tr><td><td>is that</td><td></td><td>be that</td>
+<tr><td>Articles:<td>the</td><td></td><td>th'</td>
+<tr><td><td>my</td><td></td><td>me</td>
+<tr><td><td>your</td><td></td><td>yer</td>
+<tr><td>Places:<td>restroom</td><td></td><td>head</td>
+<tr><td><td>restaurant</td><td></td><td>galley</td>
+<tr><td><td>hotel</td><td></td><td>fleabag inn</td>
+</table>
+</blockquote>
+
+</BLOCKQUOTE>
+ 
+<P><BR></P>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 3:</FONT></B> &nbsp;&nbsp;
+As the vocabulary of your pirate translator grows, the buttons in the page can appear 
+cluttered.  
+In particular, finding the button corresponding to a desired word or phrase can become 
+a chore.  
+Add an HTML table to 
+your page to organize the buttons by category.  For example, all greetings should 
+appear 
+together on the same row, with 
+the label "Greetings:" in the left column.  Similarly, all people should be grouped 
+together on 
+a row with the text 
+label "People:", and so on for each category of speech.  The screen shot below shows a 
+sample 
+page using a table to 
+organize the layout.  
+
+<P>Try the example below:</P>
+
+<p>
+<img src="img2.jpg"><center>
+&nbsp;</center>
+
+</blockquote>
+
+
+<p class="auto-style2">
+<B><FONT COLOR="red">EXERCISE 4:</FONT></B> &nbsp;&nbsp; Allow for multiple translations 
+to appear on the page, add a button labeled &quot;New Line&quot; below the word/phrase 
+buttons. When the user clicks on this button, and then tries different 
+translation, the new translation appears below the previous one. It can be 
+achieved by adding <span class="auto-style1">&lt;/br&gt;</span>:</p>
+<p class="auto-style2"><span class="auto-style1">document.getElementById('outputDiv').innerHTML 
+= document.getElementById('outputDiv').innerHTML + '&lt;br&gt;';</span></P>
+<p class="auto-style2"><img src="img3.jpg"><BR></p>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 5:</FONT></B> &nbsp;&nbsp; Locate two public domain 
+	pirate-themed images to decorate your page. One of these images should 
+	appear centered at the top of your page. When the user moves the mouse moves 
+	over the IMG element, its SRC should switch to the other image, then back 
+	again when the user moves the mouse of.<P><BR></P>
+
+</BLOCKQUOTE>
+
+<HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,405 @@
+<HTML
+<HEAD>
+  
+  <head>
+  <TITLE>Lab: Repetition, Design, and a Guessing Game</TITLE>
+</HEAD>
+
+
+  <style type="text/css">
+  .auto-style1 {
+	  text-align: center;
+  }
+  .auto-style2 {
+	  font-family: "Courier New", Courier, monospace;
+  }
+  .auto-style3 {
+	  color: #FF0000;
+  }
+  </style>
+  </head>
+
+
+<BODY BGCOLOR="white" LINK="red" VLINK="darkred" ALINK="blue">
+
+<P ALIGN="right">Name: 
+_________________________________________</P>
+
+<P><BR></P>
+
+<center><h2>Lab: Repetition, Design, and a Guessing Game</h2>
+        <h3>Lab to accompany <a href="http://balance3e.com">
+        A Balanced Introduction to Computer Science, 3rd ed.</a><br />
+        by David Reed, Pearson Prentice-Hall, &copy;2011.</h3></center>
+
+<P><BR></P>
+
+<P> You are now familiar with all of the basic programming constructs in JavaScript: 
+variables, functions, conditionals, and loops. Using these constructs and the 
+experience you have gained in solving relatively small problems, you are ready to begin 
+designing
+and implementing solutions to more complex problems. In this lab, you will work 
+with a partner to design a program for playing an interactive game, and then implement 
+the design independently.  To assist you in the design process, you will follow an 
+iterative refinement approach to designing the program.
+
+
+<P><HR></P>
+
+<H3> Binary reduction guessing game </H3>
+
+<P>  For this lab, you are to design and implement a page for playing a guessing game 
+with the user.  The game begins by asking the user to think of a number in some range, 
+such as 1 to 100.  Your program should then repeatedly guess numbers until it gets the 
+user's number.  After each guess, the program will receive feedback from the user as to 
+whether the guess was correct, too high, or too low.  The number of guesses required to 
+get the user's number should be displayed at the end.   Your page should appear as 
+follows, with text boxes that allow the user to specify the range of numbers and a 
+button for starting the game:
+
+<P>
+<CENTER>
+  &nbsp;<br>
+  <img src="img4.gif"></CENTER>
+
+<P>When the user clicks on the button, (s)he should be shown the program's initial 
+guess, and prompted to see whether that guess is correct, too high, or too low.
+
+
+<P class="auto-style1">
+<img src="img6.jpg"><P>The 
+program should continue generating guesses and prompting for responses until it finally 
+guesses the user's number.
+
+
+<P class="auto-style1">
+<img src="img7.jpg"><P class="auto-style1">
+<img src="img8.gif"><P class="auto-style1">
+&nbsp;<P> One way to think of the game from the program's perspective is to focus on the 
+range in which the user's number must lie.  At the beginning of the game, the user's 
+number could be anywhere in the initial range, say 1 to 100.  By making a guess, such 
+as 50, the computer is able to reduce the range in which the user's number can lie.  
+For example, if 50 was too low, then the number must lie in the range 51 to 100.  
+Likewise, if 50 was too high, then the number must lie in the range 1 to 49.  
+Subsequent guesses can reduce the range even further, repeating the process until the 
+program eventually hones in on and guesses the number.   Since the program should try 
+to guess the user's number <I>in the fewest number of guesses,</I> it should always 
+guess the midpoint of the possible range of numbers in order to divide the possible 
+range in half.  Because of the halving effect, this strategy is known as <I>binary 
+reduction.</I>. </P>
+
+<P><HR></P>
+
+<H3> Iterative refinement </H3>
+
+<P>Before you begin designing and implementing a program for playing the binary 
+reduction guessing game, it is worthwhile to take a moment and think about program 
+design.  Designing a program from scratch is not always a simple task.  Without 
+forethought and planning, it is easy to become overwhelmed in complexity and lose focus 
+when writing code.  In fact, Henry Ledgard once remarked:
+
+<BLOCKQUOTE>
+<I>The sooner you start coding your program, the longer it's going to take.</I>
+</BLOCKQUOTE>
+
+<P>A common, systematic approach to designing programs is known as <I>iterative 
+refinement</I>. The basic idea is to start with a general description of a solution to 
+the given problem, and then incrementally add more and more detail until the final 
+program is derived.  The main advantage of an incremental approach is that it helps to 
+manage complexity. At the start, you can abstract away some of the details in order to 
+describe a general outline to the solution. Then, you can add details slowly, a little 
+bit at a time, so that no single step in the design process is overwhelmingly complex. 
+In this way, a series of small refinements to a general outline can lead to the 
+solution of a complex problem. 
+
+
+<P><BR>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 1:</FONT></B> &nbsp;&nbsp;Play the game with your 
+partner using the table below to trace the game (follow the example). First ask your 
+partner to think of a number between 1 and 100 and try to guess it in the least number of tries. Next switch roles and play the game 
+on paper again. </p>
+<table border="1" width="100%">
+	<tr>
+		<td width="15%" align="center"><b>from</b></td>
+		<td width="15%" align="center"><b>to</b></td>
+		<td width="15%" align="center"><b>yourGuess</b></td>
+		<td width="15%" align="center"><b>Too High</b></td>
+		<td width="15%" align="center"><b>Too Low</b></td>
+		<td width="15%" align="center"><b>Correct</b></td>
+	</tr>
+	<tr>
+		<td width="15%" align="center" bgcolor="#C0C0C0">1</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">100</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">50</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">
+		<font face="Times New Roman">&#8730;</font></td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">&nbsp;</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center" bgcolor="#C0C0C0">1</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">49</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">25</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">&nbsp;</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">
+		<font face="Times New Roman">&#8730;</font></td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center" bgcolor="#C0C0C0">26</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">49</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">37</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">&nbsp;</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">&nbsp;</td>
+		<td width="15%" align="center" bgcolor="#C0C0C0">
+		<font face="Times New Roman">&#8730;</font></td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+		<td width="15%" align="center">&nbsp;</td>
+	</tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>What was the number that your partner thought of, how many guesses did it take 
+you to guess the number?</p>
+<p>&nbsp;</p>
+<p>&nbsp;<BR>
+</p>
+
+<br><br><br><br><br><br>Discuss a general outline for the binary guessing 
+game program with your partner.  Your outline should be relatively high-level, identifying the major 
+tasks involved in playing this game and their relative order.  You should NOT be 
+thinking about HTML or JavaScript code at this point -- simply describe the tasks in 
+English.  
+
+<P>Once your group has agreed on a general outline, you should write it below <I>in 
+your own words.</I>  </P>
+
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></P>
+
+</BLOCKQUOTE>
+
+<P><BR>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 2:</FONT></B> &nbsp;&nbsp;
+Once you have written your own version of the solution outline, return to your 
+	partner 
+and take the next step of identifying the major programming constructs that will go 
+into your program.  That is, specify which control statements (e.g., if, if-else, 
+while) will be needed for which tasks, any counters that will be used, and how input 
+and output will be accomplished.  Once your group has agreed on a list of control 
+statements and constructs, you should write it below <I>in your own words.</I>   </P>
+
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></P>
+
+</BLOCKQUOTE>
+
+<P><BR>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 3:</FONT></B> &nbsp;&nbsp;
+Again, return to your group and design the overall layout of the program.  That is, 
+write a code framework that shows how the control statements will fit together and what 
+the particular tasks to be completed are.  For example, if your solution involves an if 
+statement inside a while loop, write these constructs in their relative positions, with 
+English pseudo-code to fill in the gaps in the code.  Once your group has agreed on a 
+layout, you should write it below <I>in your own words.</I>  </P>
+
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></P>
+</BLOCKQUOTE>
+
+
+<P><BR>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 4:</FONT></B> &nbsp;Open provided
+	<span class="auto-style2">gameHiLow.html</span> in Notepad++. Analyze the 
+	overall layout of the page with your partner. Notice that the function has 
+	several variables already defined:<br>
+<ol>
+	<li><font face="Courier New">from</font> - the minimum number to choose from 
+	(inclusive)</li>
+	<li><font face="Courier New">to</font> - the maximum number to choose from 
+	(inclusive)</li>
+	<li><font face="Courier New">counter</font> - how many times it took the 
+	computer to guess the user's secret number</li>
+	<li><span class="auto-style2">correct</span> - flag that should be set to
+	<em>true</em> as soon as the guess is correct; this flag should be used by 
+	the while loop </li>
+	<li><font face="Courier New">guess</font> - the guess number generated by 
+	the program.&nbsp; The program should calculate the new guess using the 
+	following formula:
+	<blockquote>
+		<blockquote>
+			<blockquote>
+				<p>&nbsp;<font face="Courier New">guess = Math.floor((to + from) 
+				/ 2);</font></p>
+			</blockquote>
+		</blockquote>
+	</blockquote>
+	</li>
+</ol>
+	<br><br><strong><span class="auto-style3">EXERCISE 5: </span></strong>Complete the definition of your program by filling in the missing details.  
+This work should be done by you <I>independently.</I>  You may confer with your 
+	partner to clarify aspects of the layout or to adjust the design if warranted, but 
+the actual coding of the details should be performed <I>by you alone.</I> </P>
+
+<P>NOTE: When the user clicks on the button, (s)he should be shown the program's initial 
+guess, and prompted to see whether that guess is correct, too high, or too low.
+
+
+To prompt the user for the guess use JavaScript function called
+<span class="auto-style2"><strong>prompt.</strong></span> Please note that the while loop is 
+needed to handle user pressing the &quot;Cancel&quot; button:</P>
+	<P> &nbsp;<span class="auto-style2">&nbsp;&nbsp;&nbsp; response = null; </span><br class="auto-style2"><span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;while (response == null) <br class="auto-style2"><span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;{<br class="auto-style2"><span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;
+		<span class="auto-style2">response = prompt('Did you think of ' + guess + '? \n( yes / high / low 
+	)');</span><br class="auto-style2"><span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;}<br class="auto-style2"><span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;if (response == 
+	'yes')</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp; {</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// your code</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp; }</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;else if (response == 'low')</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp; {</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// your code</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp; }</span><BR class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;else</span><br class="auto-style2"> 
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp; {</span><br class="auto-style2">
+		<span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // your 
+		code</span><br class="auto-style2"><span class="auto-style2">&nbsp;&nbsp;&nbsp; }</span></P>
+
+</BLOCKQUOTE>
+
+
+<P><BR>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 6:</FONT></B> &nbsp;&nbsp;
+Once you have completed your code, test it thoroughly.  </P>
+
+<P> If the initial range is 1 to 10, what is the minimum number of guesses needed  to 
+guess the user's number?  What is the maximum number needed?  Explain and give examples 
+which support your claims.  </P>
+
+<P><BR><BR><BR><BR><BR></P>
+
+<P> If the initial range is 1 to 20, what is the minimum number of guesses needed  to 
+guess the user's number?  What is the maximum number needed?  Explain and give examples 
+which support your claims.  </P>
+
+<P><BR><BR><BR><BR><BR></P>
+
+<P> If the initial range is 1 to 40, what is the minimum number of guesses needed  to 
+guess the user's number?  What is the maximum number needed?  Explain and give examples 
+which support your claims.  </P>
+
+<P><BR><BR><BR><BR><BR></P>
+
+<P> If the initial range is 50 to 89, what is the minimum number of guesses needed  to 
+guess the user's number?  What is the maximum number needed?  Explain and give examples 
+which support your claims.  </P>
+
+<P><BR><BR><BR><BR><BR></P>
+
+<P> If the initial range contains 1000 numbers, it turns out that the maximum number of 
+guesses needed to guess the user's number is 10.  What would be the maximum number of 
+guesses needed to guess the number if the initial range contained 2000 numbers?  10,000 
+numbers?  Explain your reasoning.</P>
+	<P> &nbsp;</P>
+	<P> &nbsp;</P>
+	<P> &nbsp;</P>
+	<P> &nbsp;</P>
+
+<P><B><FONT COLOR="red">EXERCISE 7:</FONT></B> &nbsp;&nbsp; What happens in the game if 
+the user enters the<em> from</em> number that is smaller than the <em>to</em> 
+number? Does your program handles this condition?<BR></P>
+
+</BLOCKQUOTE>
+
+<P><BR>
+<BLOCKQUOTE>
+<B><FONT COLOR="red">EXERCISE 8:</FONT></B> &nbsp;&nbsp; What happens in the game if the 
+	user cheats, i.e., changes his/her number during the 
+game?  For example, suppose that the user thinks of a number between 1 and 100, say 20.  
+The program guesses 50, which is too high, so it next guesses 25.  If the user then 
+changes their number to 79, will your program find the new number?  Why or why not?
+	<br><br><br><br><br><br><br> 
+</P>
+
+<P><B><FONT COLOR="red">EXERCISE 9:</FONT></B> &nbsp;&nbsp; Modify your program so that it 
+recognizes when the user has cheated and admonishes him/her accordingly.<BR><BR><BR><BR><BR><BR><BR><BR></P>
+
+<P><BR><BR><BR></P>
+
+</BLOCKQUOTE>
+
+
+<P><HR>
+</BODY>
+</HTML>

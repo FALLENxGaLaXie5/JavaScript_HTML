@@ -1,0 +1,63 @@
+<!doctype html>
+<!-- classify.html                         		  Joshua Steward  -->
+<!-- Determines whether a number is positive, negative, or zero.  -->
+<!-- =====================================================  	  -->
+
+<html>
+ <head>
+   <title> Classified Intel </title>
+   
+    <script type="text/javascript" src="weather.js">
+   </script> 
+   <script type="text/javascript">
+     function CalcDewPoint()
+     // Assumes: User has entered in values for temp and hum, and that DewPoint is defined in weather.js.
+     // Results: Function being displayed in outputDiv.
+     {
+        var temp, hum, wind, dewP;
+		temp = parseFloat(document.getElementById('tempBox').value);
+		hum  = parseFloat(document.getElementById('humBox').value);
+		
+		dewP = Math.round(DewPoint(temp, hum) * 100)/100;
+		document.getElementById('outputDiv').innerHTML=
+		'The DewPoint is ' + dewP + ' degrees F.';
+		//For the humidity, since the user inputs it as a percentage, you change it to a decimal, right? /100?
+		
+		//I didn't declare the temperature, wind speed, or humidity as local because
+		// we use them in the second function as well.	
+	  
+     }
+	 function GenerateWindChill()
+	 //Assumes: User has entered values for temp and wind, and that WindChill is defined in weather.js.
+	 //Results: Wind chill being displayed in outputDiv.
+	 {
+		var temp, wind, winCH;
+		temp = parseFloat(document.getElementById('tempBox').value);
+		wind = parseFloat(document.getElementById('windBox').value);
+		
+		winCH = Math.round(WindChill(temp, wind) * 100)/100;
+		document.getElementById('outputDiv').innerHTML=
+		'The Wind Chill is ' + winCH + ' degrees F.';
+		
+	 }
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center"> 
+	<p>
+	<h1>
+	Determine whether a number is positive, negative, or zero.
+	</h1>
+    <br>
+    <br> 
+     Temperature: <input type="text" id="tempBox"  size=10 value="">&deg;F<br>
+	 Wind Speed:  <input type="text" id="windBox"  size=10 value="">MPH<br>
+	 Humidity:    <input type="text" id="humBox"   size=10 value="">%<br>
+	 <input type="button" value="Calculate Dew Point" onclick="CalcDewPoint();">
+	 <input type="button" value="Calculate Wind Chill" onclick="GenerateWindChill();">
+	<hr>
+	<div id="outputDiv"></div>
+   </div>
+ </body>
+</html>

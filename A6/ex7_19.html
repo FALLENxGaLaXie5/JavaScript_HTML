@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- swap.html                                 Joshua Steward -->
+<!-- Web page that swaps two images at the click of a button. -->
+<!-- ======================================================== -->
+
+<html>
+ <head>
+   <title>Image Swapper</title>
+   <script type="text/javascript">
+		function ImgSwapLeft()
+		//Assumes: Image sources are at given sources, and that they work correctly.
+		//Results: Middle image source replacing left image source, 
+		//right image source replacing middle, and left image source replacing right image source.
+		{
+			savedL=document.getElementById('leftImg').src;
+					savedM=document.getElementById('middleImg').src;
+					savedR=document.getElementById('rightImg').src;
+                     document.getElementById('leftImg').src=
+                       document.getElementById('middleImg').src;
+                     document.getElementById('middleImg').src=savedR;
+					 document.getElementById('rightImg').src=savedL;
+		}
+		function ImgSwapRight()
+		//Assumes: Image sources are at given sources, and that they work correctly.
+		//Results: Middle image source replacing right image source,
+		//right image source replacing left image source, and left image source replacing middle image source.
+		{
+			savedL=document.getElementById('leftImg').src;
+					savedM=document.getElementById('middleImg').src;
+					savedR=document.getElementById('rightImg').src;
+						document.getElementById('leftImg').src=
+						document.getElementById('rightImg').src;
+						document.getElementById('rightImg').src=savedM;
+						document.getElementById('middleImg').src=savedL;
+		}
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center">
+     <h2>Image Swapper</h2>
+     <p>
+       <img id="leftImg" src="http://balance3e.com/Images/happy.gif" height=100 width=100>
+       <img id="middleImg" src="http://balance3e.com/Images/sad.gif" height=100 width=100>
+	   <img id="rightImg" src="surprise.jpg" height=100 width=100>
+     </p>
+     <input type="button" value="Rotate Left"
+            onclick="ImgSwapLeft();">
+	<input type="button" value="Rotate Right"
+			onclick="ImgSwapRight();">
+   </div>
+ </body>
+</html>

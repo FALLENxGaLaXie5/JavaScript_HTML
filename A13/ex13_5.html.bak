@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- lotto.html                                  Joshua Steward -->
+<!-- This page simulates a lottery							    -->
+<!-- ========================================================== -->
+ 
+<html>
+ <head>
+   <title> Pick 4 Lotto </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   <script type="text/javascript">
+     function RollUntilDoubles()
+     // Assumes: outputDiv is available for output
+     // Results: rolls and displays rolls until a specific lottery is obtained
+     {
+       var roll1, roll2, roll3, roll4, rollDoubles, rolls;
+       
+       rollDoubles = false;
+       
+	   rolls = 0;
+	   roll1 = parseFloat(document.getElementById('roll1').value);
+	   roll2 = parseFloat(document.getElementById('roll2').value);
+	   roll3 = parseFloat(document.getElementById('roll3').value);
+	   roll4 = parseFloat(document.getElementById('roll4').value);
+	   
+	   
+    
+       while (rollDoubles==false) {                	
+         roll1 = RandomInt(0, 9);              		
+         roll2 = RandomInt(0, 9);
+		 roll3 = RandomInt(0, 9);
+		 roll4 = RandomInt(0, 9); 
+													
+         
+		 rolls = rolls + 1;
+       
+       if ((roll1==parseFloat(document.getElementById('roll1').value))
+			&&(roll2==parseFloat(document.getElementById('roll2').value))
+			&&(roll3==parseFloat(document.getElementById('roll3').value))
+			&&(roll4==parseFloat(document.getElementById('roll4').value))) {
+				rollDoubles = true;
+			
+			document.getElementById('outputDiv2').innerHTML = 
+			'It took ' + rolls + ' entries to obtain the sequence '+roll1 +'-'+roll2+'-'+roll3+'-'+roll4;
+			
+			}
+		//For the sequence 0-0-0-0 I got an average of about 6780 rolls over 20 tries.
+		//For the sequence 0-1-2-3 I got an average of about 8018 rolls over 20 tries. This
+		// is a fair representation, as the numbers are so high its hard to predict.
+		}
+	}
+	
+   </script>
+ </head>
+
+ <body>
+ <div style="text-align:center">
+   <h2>Pick 4 Lotto</h2><br>
+   <p> This page demonstrates the futility of lotteries.<br>
+   Click on the button to perform LOTTO drawings until 
+   
+   <input type="text" id="roll1" size=2 value="0" />
+   <input type="text" id="roll2" size=2 value="0" />
+   <input type="text" id="roll3" size=2 value="0" />
+   <input type="text" id="roll4" size=2 value="0" /> appears.
+   <br>
+    <input type="button" value="Roll Until You Get Your Entry!" onclick="RollUntilDoubles();">
+   <br></p>
+   
+   <hr>
+	<br>
+	
+   
+   <div id="outputDiv2"></div>
+  </div>
+  
+   
+ </body>
+</html>

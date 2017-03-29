@@ -1,0 +1,54 @@
+<!doctype html>
+<!-- classify.html                         		  Joshua Steward  -->
+<!-- Determines whether a number is positive, negative, or zero.  -->
+<!-- =====================================================  	  -->
+
+<html>
+ <head>
+   <title> Classified Intel </title>
+   
+   
+   <script type="text/javascript">
+     function GenerateAnswer()
+     // Assumes:
+     // Results: 
+     {
+        var answer, number;
+		
+		number = parseFloat(document.getElementById('inputBox').value);
+		
+		if (number > 0)
+			{
+			document.getElementById('outputDiv').innerHTML =
+			'Your number is positive! Congratulations, you deserve a cookie!';
+			}
+		else if (number == 0)
+			{
+			document.getElementById('outputDiv').innerHTML = 
+				'Your number is Zero exactly! Congratulations, you deserve a cookie!';
+			}	
+		else if (number < 0)
+			{
+			document.getElementById('outputDiv').innerHTML = 
+				'Your number is negative! Congratulations, you deserve a cookie!';
+			}	
+	  
+     }
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center"> 
+	<p>
+	<h1>
+	Determine whether a number is positive, negative, or zero.
+	</h1>
+    <br>
+    <br> 
+     <input type="text" id="inputBox" size=10 value="">
+	 <input type="button" value="Click Here!" onclick="GenerateAnswer();">
+	<hr>
+	<div id="outputDiv"></div>
+   </div>
+ </body>
+</html>

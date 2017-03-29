@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- fold.html                           Joshua Steward --> 
+<!-- This page the thickness a sheet of paper would have to be to equal the distance from the earth to the sun --> 
+<!-- ======================================================= -->
+
+<html>
+ <head> 
+   <title> Countdown </title>
+   <script type="text/javascript">  
+     function Countdown()
+     // Assumes: countBox contains a non-negative integer
+     // Results: displays a countdown from that number in outputDiv
+     {
+       var inches;
+       inches = 0.002;
+	   
+               
+       document.getElementById('outputDiv').innerHTML = '';   
+
+       while (inches <= 5892480000000) {                                 
+           
+         inches = inches * 2;  
+		 
+		if (inches >= 5892480000000){
+			inches = Math.round(inches);
+			
+			document.getElementById('outputDiv').innerHTML =
+			'Number of paper folds needed to make a piece of paper reach the sun is ' + inches + ' folds!';
+			// Number of paper folds needed to make a piece of paper reach the sun is 9007199254741 folds.
+		}
+       }  
+	   
+
+      
+		
+		
+	}
+   </script> 
+ </head> 
+
+ <body>
+   <p>
+     Calculate number of folds needed to fold a piece of paper into the distance to the sun!
+   </p>
+   <input type="button" value="Begin Countdown" onclick="Countdown();" />
+   <hr />
+   <div id="outputDiv"></div><br>
+   
+ </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- distance.html                                    Joshua Steward -->
+<!-- This page displays the distance between two points.			 -->
+<!-- =============================================================== -->
+
+<html>
+ <head>
+   <title> Distance Calculator</title>
+   <h2> Distance Calculator </h2>
+   <script type="text/javascript">
+     function CalculateDistance()
+	 // 
+	 //
+	 {
+		corX = parseFloat(document.getElementById('x1Box').value);
+		corY = parseFloat(document.getElementById('y1Box').value);
+		corX2 = parseFloat(document.getElementById('x2Box').value);
+		corY2 = parseFloat(document.getElementById('y2Box').value);
+		xPOR = corX - corX2;
+		yPOR = corY - corY2;
+		distance = Math.sqrt(Math.pow(xPOR, 2) + Math.pow(yPOR, 2));
+		distanceF = Math.round(distance*100)/100;
+		document.getElementById('outputDiv').innerHTML=
+		'The distance between (' + corX + ',' + corY + ') and (' + corX2 + ',' + corY2 + ') is ' + distanceF +'.';
+
+				
+		
+	 
+	 }
+   </script>
+ </head>
+
+ <body>
+	<p>
+		X<small>1</small> <input type="text" id="x1Box" size=10 value="">,
+		Y<small>1</small> <input type="text" id="y1Box" size=10 value="">
+		<br>
+		X<small>2</small> <input type="text" id="x2Box" size=10 value="">,
+		Y<small>2</small> <input type="text" id="y2Box" size=10 value="">
+		<br>
+	<p>
+	<input type="button" value="Calculate Distance" 
+          onclick="CalculateDistance();">
+	<hr>
+	<div id="outputDiv"></div>
+ </body>
+</html>

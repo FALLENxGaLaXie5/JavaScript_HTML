@@ -1,0 +1,36 @@
+<!doctype html>
+<!-- bannerads.html                                   Joshua Steward -->
+<!-- This page displays banner ads that change at regular intervals. -->
+<!-- =============================================================== -->
+
+<html>
+ <head>
+   <title> Random Banner Ads </title>
+   <script type="text/javascript">
+     function SelectAd() 
+     // Assumes: the banners ad0.gif, ad1.gif, ad2.gif, and ad3.gif are
+     // stored in http://balance3e.com/Images
+     // Results: displays the next banner ad image in the page
+     {
+          adNum = (adNum + 1) % 5;
+		  
+          document.getElementById('adImg').src=
+             'slide' + adNum + '.jpg';
+				 	 
+	// The link to the ads wasn't working so I put in the pictures I used for the slide show. Hope that's ok.			 
+     }
+   </script>
+ </head>
+
+ <body onload="adNum=0; setInterval('SelectAd()', 2000);">
+   <div style="text-align:center"> 
+     <img id="adImg" alt="banner ad" 
+          src="slide1.jpg"
+		  height= 200 width= 200
+		  >
+   </div>
+   <p>
+     You will give me your money. DON'T TRY DEM JEDI MIND TRICKS ON ME!
+   </p>
+ </body>
+</html>

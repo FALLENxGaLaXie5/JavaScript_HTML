@@ -1,0 +1,21 @@
+<!doctype html>
+<!--mystery1.html					 Joshua Steward -->
+<!--This page changes an image source on mouseover.	-->
+<!-- ============================================= 	-->
+
+<html>
+	<head>
+		<title> Mystery Image </title>
+	</head>
+	
+	<body>
+		<div style="text-align:center">
+			<img src="http://balance3e.com/Images/mystery.gif" alt="Mystery image"
+				onmouseover="this.src='explode.png';"
+				onmouseout="this.src='obama.jpg';">
+			<p>
+				Move the mouse over the question mark to reveal the image.
+			</p>
+		</div>
+	</body>
+</html>

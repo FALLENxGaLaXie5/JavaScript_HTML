@@ -1,0 +1,21 @@
+<!doctype html>
+<!--Resize.html						  Dave Reed -->
+<!--This page changes an image source on mouseover. -->
+<!-- =============================================  -->
+
+<html>
+	<head>
+		<title> Resize </title>
+	</head>
+	
+	<body>
+		<div style="text-align:center">
+			<img src="obama.jpg" alt="Mystery image"
+				onmouseover="this.height=352; this.width=406"
+				onmouseout="this.height=176; this.width=203">
+			<p>
+				Move the mouse over the question mark to reveal the image.
+			</p>
+		</div>
+	</body>
+</html>

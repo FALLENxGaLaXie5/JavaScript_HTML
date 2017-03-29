@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- ex5_5_skeleton.html              Anna Bieszczad -->
+<!-- Web page that displays an interactive story.    -->
+<!-- =============================================== -->
+<html>
+	<head>
+		<title> Interactive Story </title>
+	</head>
+	<body>
+		<h2>Joshua's Story</h2>
+		<p>
+			Enter an adjective: <input type="text" id="adjectiveBox" value="smarmy">
+			<br>
+			Enter a color: <input type="text" id="colorBox" value="mauve">
+			<br>
+			Enter a verb: <input type="text" id="verbBox" value="destroy">
+			<br>
+			Enter a plural noun: <input type="text" id="pnounBox" value="kids">
+			<br>
+			Enter a place: <input type="text" id="placeBox" value="barn">
+		</p>
+		<input type="button" value="Click for Story"
+			onclick=" adjective = document.getElementById('adjectiveBox').value;
+				color = document.getElementById('colorBox').value;
+				verb = document.getElementById('verbBox').value;
+				pnoun = document.getElementById('pnounBox').value;
+				place = document.getElementById('placeBox').value;
+				document.getElementById('outputDiv').innerHTML=
+					'<p>It was a ' + adjective 
+					+ ' kind of day and the sky was a deep ' + color 
+					+ ', so we decided to go '+ verb + 
+					'the ' + place + ' . After awhile, our ' + verb +'ing
+					attracted the attention of a few passing '+ pnoun + '. These ' +
+					 pnoun + ' decided they'd join us, and we all lived happily ever after.</p>';">
+		<hr>
+		<div id="outputDiv"></div>
+	</body>
+</html>

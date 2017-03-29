@@ -1,0 +1,6 @@
+ex15_12.txt					Joshua Steward
+
+message		Atbash		Caesar		Mystery
+ABCDE		ZYXWV		DEFGH		QWERT
+FOO			ULL			IRR			YGG
+SECRET		HVXIVF		VHFUHX		LTEKTZ

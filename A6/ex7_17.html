@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- bits.html								  Joshua Steward -->
+<!-- Web page that calculates the value of an amount of bits -->
+<!--==============================================			 -->
+<html>
+	<head>
+		<title> Bit Value Calculadora  </title>
+		<script type="text/javascript">
+			function BitCalc()
+			//Assumes: Integer is inputted in text box.
+			//Results: Math.pow results in 2 raised to the input value, giving the bit value.
+			{
+				N= parseFloat(document.getElementById('bitBOX').value);
+					 valueF= Math.pow(2, N);
+					 document.getElementById('outputDiv').innerHTML=
+					 'With ' + N + ' bits, you can represent ' + valueF + ' different values.';
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h2> Bit Value Calculator </h2>
+		<p>
+			Enter the amount of bits: <input type="text" id="bitBOX" size=10 value="">
+				<br>
+		</p>
+		<input type="button" value="Calculate Bit Value"
+			onclick="BitCalc();">
+		<hr>
+		<div id="outputDiv"></div>
+		
+	
+	</body>
+	
+</html>
+
+<!-- 8 bits can represent 256 values					-->
+<!-- 16 bits can represent 65536 values					-->
+<!-- 32 bits can represent 4294967296 values			-->
+<!-- 64 bits can represent 18446744073709552000 values	-->
+<!-- Math is kewl										-->

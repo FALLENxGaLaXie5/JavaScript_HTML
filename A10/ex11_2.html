@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- magic.html                      	   Joshua Steward   -->
+<!-- Displays a sequence of three randomly chosen letters.  -->
+<!-- =====================================================  -->
+
+<html>
+ <head>
+   <title> Magic 8-ball (Joshie, Inc.) </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   
+   <script type="text/javascript">
+     function GenerateAnswer()
+     // Assumes: The function RandomOneOf is stored in the random.js library.
+     // Results: Either an alert statement or an execution of the RandomOneOf function to select a random string.
+     {
+        var answer;
+		
+		if (document.getElementById('inputBox').value == '')
+			{
+			alert('ENTER A QUESTION FIRST!');
+			}
+		else
+			{
+		answer = RandomOneOf(['never', 'not likely bitch', 'if you say so', 'nope, get over it', 'possibly, but probably not cause you suck',
+								'YES, NOW GO AWAY YOU ANNOYING BITCH', 'yea, but you still suck']);
+		document.getElementById('outputDiv').innerHTML = 
+				'The Magic 8-ball says: ' + answer;
+			}	
+	  
+     }
+   </script>
+ </head>
+
+ <body>
+   <div style="text-align:center"> 
+	<p>
+	<h1>
+	Magic 8-ball (Joshie, Inc.)
+	</h1>
+    <br>
+	Enter a question below, then click on the Magic 8-ball to recieve its wisdom.
+    <br> 
+     <input type="text" id="inputBox" size=100 value=""><br>
+	 <input type="image" src="http://balance3e.com/Images/8ball.gif" alt="Submit button" id="ballButton"
+	 onclick="GenerateAnswer();">
+	<hr>
+	<div id="outputDiv"></div>
+   </div>
+ </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- error1.html                       Dave Reed   -->
+<!-- This page changes an image source on a click. -->
+<!-- ============================================= -->
+ 
+<html>
+ <head>
+   <title> Example of error 1</title>
+ </head>
+
+ <body>
+   <div style="text-align:center">
+       <p>
+        This page has an error, so the clicking on the image below will 
+        not work until we correct the problem.
+      </p>   
+     <img src="http://balance3e.com/Images/mystery.gif" alt="Mystery Image" 
+          onclick="this.src='http://balance3e.com/Images/happy.gif';
+                   alert('This example is illegal because the string is broken 
+                   across lines');">
+   </div>
+ </body>
+</html>

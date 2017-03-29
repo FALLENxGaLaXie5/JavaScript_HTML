@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- grades.html                                  Dave Reed -->
+<!-- Web page that calculates the tip amount on a check. -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Grade Calculator </title>
+ </head>
+
+ <body>
+   <h2>Grade Calculator</h2>
+   <p>
+     Homework: 25% of grade. <input type="text" id="homeworkBox" size=10 value="">
+     <br>
+     Labs: 20% of grade. <input type="text" id="labsBox" size=10 value="">
+	 <br>
+	 Midterm: 25% of grade. <input type="text" id="midtermsBox" size=10 value="">
+	 <br>
+	 Final Exam: 30 % of grade. <input type="text" id="finalBox" size=10 value"">
+   </p>   
+   <input type="button" value="Calculate Tip" 
+          onclick="homeworkHW = parseFloat(document.getElementById('homeworkBox').value);
+                   labsLB = parseFloat(document.getElementById('labsBox').value);
+				   midtermMT = parseFloat(document.getElementById('midtermsBox').value);
+				   finalFI = parseFloat(document.getElementById('finalBox').value);
+				   gradeBox = (homeworkHW*0.25) + (labsLB*0.20) + (midtermMT*0.25) + (finalFI*0.30);
+                   document.getElementById('outputDiv').innerHTML=
+                       'Grade in class is ' + gradeBox + '%';">
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

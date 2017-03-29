@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- esp2.html                                      Joshua Steward -->
+<!-- This page performs an ESP test by displaying a random number. -->
+<!-- ============================================================= -->
+
+<html>
+ <head>
+   <title> ESP Test </title>
+   <script type="text/javascript" src="http://balance3e.com/random.js">
+   </script>
+   
+   <script type="text/javascript">
+     function PickNumber(guess) 
+     // Assumes: guess is the user's guess (between 1 and 5)
+     // Results: displays a random number between 1 and 5 in outputDiv
+     {
+       var number;
+       
+       number = (RandomInt()*5);    
+       document.getElementById('outputDiv').innerHTML = 
+           'You guessed ' + guess + '.  My number was ' + number + 
+           '.  Were you correct?';
+     }
+   </script> 
+ </head>
+
+ <body>
+   <div style="text-align:center">
+     <h2>ESP Test</h2>
+     <p>
+       Think of a number between 1 and 5, then click the button to see 
+       if you were right.
+     </p>
+     <input type="button" value="Guess 1" onclick="PickNumber(1);">
+     <input type="button" value="Guess 2" onclick="PickNumber(2);">
+     <input type="button" value="Guess 3" onclick="PickNumber(3);">
+     <input type="button" value="Guess 4" onclick="PickNumber(4);">
+	 <input type="button" value="Guess 5" onclick="PickNumber(5);">
+
+     <hr>
+     <div id="outputDiv"></div>
+   </div>
+ </body>
+ <!--  Out of 20 guesses, I got 6 right. I'm definitely either magical or have ESP -->
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- esp2.html                                       Joshua Steward-->
+<!-- This page performs an ESP test by displaying a random number. -->
+<!-- ============================================================= -->
+
+<html>
+ <head>
+   <title> ESP Test </title>
+   <script type="text/javascript">
+     function PickNumber(guess) 
+     // Assumes: guess is the user's guess (between 1 and 4)
+     // Results: displays a random number between 1 and 4 in outputDiv
+     {
+       var number;
+       
+       number = Math.ceil(Math.random()*4);    
+       document.getElementById('outputDiv').innerHTML = 
+           'You guessed ' + guess + '.  My number was ' + number + 
+           '.  Were you correct?';
+     }
+   </script> 
+ </head>
+
+ <body>
+   <div style="text-align:center">
+     <h2>ESP Test</h2>
+	 <br>
+	 <h3>
+	 Measure your Extrasensory Perception
+	 </h3>
+     <p>
+     The card below hides the image of a square, triangle, circle, or star. <br>
+	 Concentrate on the hidden image, then click on the corresponding button to make your guess. <br><br>
+	 Statistics showing the number and percentage of correct guesses will appear in the boxes.
+	<br>
+	<hr>
+	
+     </p>
+     <input type="button" value="Square" onclick="PickNumber(1);">
+     <input type="button" value="Triangle" onclick="PickNumber(2);">
+     <input type="button" value="Circle" onclick="PickNumber(3);">
+     <input type="button" value="Star" onclick="PickNumber(4);"><br>
+	 <img src="http://balance3e.com/Images/mystery.gif" alt="Image">
+	 
+    
+     <div id="outputDiv"></div>
+   </div>
+ </body>
+</html>

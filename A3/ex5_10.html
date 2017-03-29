@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- years.html                                  Dave Reed -->
+<!-- Web page that calculates the tip amount on a check. -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Years to Seconds Calculator</title>
+ </head>
+
+ <body>
+   <h2> Years to Seconds</h2>
+   <p>
+     Enter the year amount: <input type="text" id="amountBox" size=10 value="">
+     <br>
+     
+   </p>   
+   <input type="button" value="Presto" 
+          onclick="yearsAmount= parseFloat(document.getElementById('amountBox').value);
+                   secondsAmount= 31536000 * yearsAmount; 
+                   document.getElementById('outputDiv').innerHTML=
+                       'That\s ' + secondsAmount + ' seconds!';">
+	<!-- We have approximately 3.5 months left of school, which is about 29/100's of a year,
+		or 9145440 seconds. 							 -->
+	<!-- I have about 103753440 seconds left of college. -->
+		
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

@@ -1,0 +1,4 @@
+ex13_1									Joshua Steward
+My shortest sequence that gave me doubles was one roll.
+My longest sequence that gave me doubles was 26 rolls.
+			

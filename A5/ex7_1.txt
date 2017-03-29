@@ -1,0 +1,13 @@
+doctype text
+Joshua Steward
+
+Function	Inputs		Description
+Math.sqrt	one number	returns the square root of the input
+Math.max	two numbers	returns the greater of the two inputs
+Math.min	two numbers	returns the lesser of the two inputs
+Math.abs	one number	returns the absolute value of the number, or if number is a fraction, returns the absolute value of the numerator
+Math.floor	one number	returns a whole number that is always rounded to the lower whole number. If fraction, returns the Math.floor of the numerator.
+Math.ceil	one number	returns a whole number that is always rounded to the higher whole number. If fraction, returns the Math.ceil of the numerator
+Math.round	one number	returns the rounded whole number. If fraction, returns the rounded whole number from the numerator.
+
+Note- I think the page is coded wrong, because the fraction is only inputting the numerator, unless I'm putting in fractions wrong.

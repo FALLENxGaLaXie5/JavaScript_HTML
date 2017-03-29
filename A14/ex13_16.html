@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- craps.html                                   Joshua Steward -->
+<!-- This page simulates a game of craps						 -->
+<!-- ========================================================== -->
+ 
+<html>
+ <head>
+   <title> Craps </title>
+  <script type="text/javascript" src="http://balance3e.com/random.js">
+  </script>
+   <script type="text/javascript">
+     function RollUntilDoubles()
+     // Assumes: outputDiv is available for output.
+     // Results: rolls two different summations and uses them to play the game
+     {
+       var roll1, roll2, myPoint, secRoll, roll4, roll3;
+       roll1 = RandomInt(1,6);
+	   roll2 = RandomInt(1,6);
+	   roll3= -5;
+	   roll4 = -3;
+	   myPoint = roll1 + roll2;
+	   secRoll = roll2 + roll3;
+	   document.getElementById('outputDiv').innerHTML= 'Initial roll:'+ myPoint + '<br>';
+	   
+	
+			if ((myPoint == 7)||(myPoint == 11))
+				{
+					document.getElementById('outputDiv').innerHTML =
+					document.getElementById('outputDiv').innerHTML + '<br>You win!';
+					cancel;
+				}
+			else if ((myPoint == 2)||(myPoint == 3))
+				{
+					document.getElementById('outputDiv').innerHTML = 
+					document.getElementById('outputDiv').innerHTML + '<br>You LOSE!';
+					cancel;	
+				}
+			else {
+					
+					while ((myPoint != secRoll)||(secRoll !=7))
+						{
+							roll3 = RandomInt(1,6);
+							roll4 = RandomInt(1,6);
+							secRoll = roll3 + roll4;
+							document.getElementById('outputDiv').innerHTML = 
+							document.getElementById('outputDiv').innerHTML + 'Next roll: ' + secRoll + '<br>';
+							
+							
+							if (myPoint == roll3 + roll4)
+							{
+								document.getElementById('outputDiv').innerHTML = 
+								document.getElementById('outputDiv').innerHTML + '<br>You Win!';
+								cancel;
+								
+							}
+							else if (secRoll ==7)
+							{
+								document.getElementById('outputDiv').innerHTML =
+								document.getElementById('outputDiv').innerHTML + '<br>You lose!';
+								cancel;
+								
+							}
+							
+							
+							
+						}		
+				
+				
+				
+				
+				
+				
+				}	
+					
+			
+			
+	}
+	
+   </script>
+ </head>
+
+ <body>
+   <h2>Craps</h2>
+
+   <input type="button" value="Roll die" onclick="RollUntilDoubles();">
+   <hr>
+   <div id="outputDiv"></div><br>
+   
+   
+   
+ </body>
+</html>

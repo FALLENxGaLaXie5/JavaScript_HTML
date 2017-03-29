@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- strdemo.html                                     Joshua Steward --> 
+<!-- This page demonstrates several string properties and operations -->
+<!-- =============================================================== --> 
+
+<html>
+ <head>  
+   <title> String Demo </title> 
+   <script type="text/javascript" src="string.js">
+	</script>
+   <script type="text/javascript">
+     function Process()
+     // Assumes: strBox contains a string
+     // Results: displays the outcome of string operations in outputDiv
+     {
+       var str;
+
+       str = document.getElementById('strBox').value;
+
+       document.getElementById('outputDiv').innerHTML = 
+         'length: ' + str.length + '<br>' +
+         'uppercase: ' + str.toUpperCase() + '<br>' + 'lower case: ' + str.toLowerCase() + '<br>' + 'Display string with first letter capitalized, and the rest lowercase: ' 
+		 + Capitalize(str) + '<br>Rotate string to the left: ' + Rotate(str) + '<br>Is this a word or a phrase? ' + Classify(str) + '<br>Reverse of this string is: ' + Reverse(str);
+		 
+		 // When putting in anything but letters, it displays it, but the functions and methods don't change
+		 // anything about the string.
+     }
+   </script>
+ </head> 
+
+ <body> 
+   <h2>String Demo</h2>  
+   <p>
+     Enter a string: <input type="text" id="strBox" size=20 value="">
+   </p>
+   <input type="button" value="Click to Process" onclick="Process();">                   
+   <hr>
+   <div id="outputDiv"></div> 
+ </body>
+</html>

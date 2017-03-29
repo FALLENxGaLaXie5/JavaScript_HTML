@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- grades.html                                  Dave Reed -->
+<!-- Web page that calculates the tip amount on a check. -->
+<!-- =================================================== -->
+
+<html>
+ <head>
+   <title> Grade Calculator </title>
+ </head>
+
+ <body>
+   <h2>Grade Calculator</h2>
+   <p>
+     Enter number to have the remainder taken of: <input type="text" id="numberBox" size=10 value="0">
+     <br>
+     
+   </p>   
+   <input type="button" value="Calculate remainder" 
+          onclick="remainder = parseFloat(document.getElementById('numberBox').value);
+                   remainder = remainder % 2;
+				   
+                   document.getElementById('outputDiv').innerHTML=
+                       'Remainder is ' + remainder + '';">
+   <hr>
+   <div id="outputDiv"></div>
+ </body>
+</html>

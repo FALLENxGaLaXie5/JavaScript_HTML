@@ -1,0 +1,75 @@
+Lab: Algorithms		Joshua Steward
+			
+Exercise 1:
+
+	Postal Code - 93012
+	1. Add up all digits
+		9 + 3 + 0 + 1 + 2
+		= 15
+	2. Check digit = 5, because a multiple of 10 is 20, and 20 - 5 = 15.
+	
+	Bar Code: ||:|:: ::||: ||::: :::|| ::|:| :|:|:|
+
+Exercise 2:
+
+	
+	
+	Approach the stop line
+		IF intersection is a four-way-stop or the light is red, stop
+		 proceed through when intersection is clear or light turns green
+		ELSE proceed through
+
+Exercise 3:
+
+	
+	Pick up phone and go to "add contact"	
+		
+		
+	IF address book has spots greater than or equal to 1
+		WHILE there is 1 spot in address book
+			READ name
+			READ number
+			DISPLAY name
+			DISPLAY number
+
+Exercise 4: 
+			
+
+	Solution #2 is the best, because it is the most efficient in terms of amount of code used. 
+	#1 does the same thing, but it will take more time to execute and is less efficient.
+	#3 will display a more detailed message to the user, but it is less efficient.
+
+Exercise 5:
+
+	SET sum to 0
+	SET counter to 0
+	WRITE "Sum of "
+	REPEAT the indented lines 100 times
+		READ number
+		IF number is even
+			WRITE number
+			ADD number to sum
+	WRITE " = "
+	WRITE sum
+
+Exercise 6: 
+
+	1. Solution #2, because it can easily be changed to fit a larger range of numbers and commands, and is more efficient.
+	2. 
+	
+	SET product to 1
+	SET number to 1
+	WRITE "Product of "
+	REPEAT the indented lines 4 times
+		WRITE number
+		MULTIPLY number with product
+		INCREMENT number by 2
+	WRITE "="
+	WRITE product
+
+Exercise 7:
+
+		READ number1
+		READ number2
+		READ number3
+			

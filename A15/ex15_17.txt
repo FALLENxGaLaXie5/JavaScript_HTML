@@ -1,0 +1,6 @@
+ex15_17.txt				Joshua Steward
+						str 		i
+before loop			'foobar'		1
+after 1st loop pass	'f*obar'		2
+after 2nd loop pass 'f**bar'		4
+after 3rd loop pass	'f**b*r'		-1

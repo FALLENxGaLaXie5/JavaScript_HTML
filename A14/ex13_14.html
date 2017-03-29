@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- countdown.html                           		  Joshua Steward --> 
+<!-- This page displays the song "100 bottles of beer on the wall	 --> 
+<!-- =======================================================		 -->
+
+<html>
+ <head> 
+   <title> 100 Bottles of Root Beer on the Wall </title>
+   <script type="text/javascript">  
+     function Countdown()
+     // Assumes: text box and buttons are assigned correctly
+     // Results: displays a countdown from user inputted number and outputs the classic song "100 bottles of beer on the wall"
+     {
+       var initial;
+       initial = parseFloat(document.getElementById('countBox').value);
+		document.getElementById('outputDiv').innerHTML = '';
+		
+			while (initial >= 1) 
+			{                                 
+				document.getElementById('outputDiv').innerHTML=
+				document.getElementById('outputDiv').innerHTML + 
+				initial + ' bottles of root beer on the wall. <br>' +
+				initial + ' bottles of root beer. <br> Take one down, pass it around.';
+				initial = initial - 1;
+				document.getElementById('outputDiv').innerHTML = 
+				document.getElementById('outputDiv').innerHTML + '<br> ' + initial + 
+				' bottles of root beer on the wall.<br><br>';
+		
+			}  
+				document.getElementById('outputDiv').innerHTML = 
+				document.getElementById('outputDiv').innerHTML + '<br>The End!';
+				
+
+		
+	}
+   </script> 
+ </head> 
+
+ <body>
+   <p>
+     Start of the countdown: <input type="text" id="countBox" size=4 value=10>
+   </p>
+   <input type="button" value="Begin Countdown" onclick="Countdown();" />
+   <hr />
+   <div id="outputDiv"></div><br>
+   
+ </body>
+</html>

@@ -1,0 +1,5 @@
+ex11_13.text: Joshua Steward
+1. x=0; y=5; It will display an alert message saying THREE.
+2. x=0; y=-5; It will display an alert message saying ONE.
+3. x=9; y=9; It will display an alert message saying ONE.
+4. x=22; y=21; It will display an alert message saying TWO.

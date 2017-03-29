@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- palindrometester.html                                     Joshua Steward --> 
+<!-- This page tests to see if a string is a palindrome				 -->
+<!-- =============================================================== --> 
+
+<html>
+ <head>  
+   <title> Palindrome Tester </title> 
+   <script type="text/javascript" src="string.js">
+	</script>
+   <script type="text/javascript">
+     function Process()
+     // Assumes: all necessary functions are defined in string.js
+     // Results: whether string is a palindrome or not
+     {
+       var str, reverse, upperStr;
+
+       str = Strip(document.getElementById('strBox').value);
+	   upperStr = str.toUpperCase();
+	   reverse = Reverse(upperStr);
+		if (upperStr == reverse)
+			{
+				 document.getElementById('outputDiv').innerHTML = 
+				 'This string is a palindrome!! YAYYYYYY!!';
+				 
+			}
+			else
+				{
+					document.getElementById('outputDiv').innerHTML = 
+						'This string is not a palindrome!!';
+				}
+		
+       
+        
+		 
+     }
+   </script>
+ </head> 
+
+ <body> 
+   <h2>Palindrome Tester</h2>  
+   <p>
+     Enter a string: <input type="text" id="strBox" size=20 value="">
+   </p>
+   <input type="button" value="Click to Process" onclick="Process();">                   
+   <hr>
+   <div id="outputDiv"></div> 
+ </body>
+</html>

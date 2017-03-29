@@ -1,0 +1,5 @@
+ex11_14.text: Joshua Steward
+1. x=0;, y=5; This will display the alert message "x = 0 , y = 5"
+2. x=0; y=-5; This will set y to equal 0.
+3. x=9; y=9; This will set x to equal 100.
+4. x=22; y=21; This will set y to equal 22.
